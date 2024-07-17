@@ -1,0 +1,122 @@
+html, body{
+    background-color: #333;
+    margin: 0;
+    padding: 0%;
+}
+
+.titile-cabe{
+  background-color: #4e464650;
+  color: #0056b3;
+  padding: 20px;
+  border: 2px solid #491f1f;
+  width: 94.7%;
+  /* position: fixed;
+  top: 0;
+  left: 0; */
+  z-index: 1;
+}
+/* .titile-cabe {
+    background-color: #09ff00;
+} */
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    /* height: 500px; */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    background-color: white;
+    color: #333;
+    transition: all 0.3s;
+    margin-top: 20px;
+}
+
+.product-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transform: scale(1.02);
+}
+
+.product-card img {
+    width: 250px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 16px;
+}
+
+.product-card h3 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.product-card p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 16px;
+}
+
+.product-card button {
+    background-color: #007bff;
+    width: 100%;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.product-card button:hover {
+    background-color: #0056b3;
+}
+
+.product-data {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 16px;
+    /* position: absolute; */
+}
+
+.product-numbers {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    /* background-color: red; */
+}
+
+.product-numbers .price {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.product-numbers .price-before {
+    font-size: 24px;
+    font-weight: lighter;
+    font-size: small;
+    color: #666;
+    text-decoration: line-through;
+}
+
+.product-data .rating {
+    /* position: relative; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+    bottom: 0;
+    right: 0;
+    background-color: #007bff;
+    color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
