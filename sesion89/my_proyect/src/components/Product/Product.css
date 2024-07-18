@@ -1,23 +1,36 @@
 html, body{
-    background-color: #333;
+    background-color: #000000;
     margin: 0;
     padding: 0%;
 }
 
 .titile-cabe{
   background-color: #4e464650;
-  color: #0056b3;
+  color: #d5dadf;
   padding: 20px;
   border: 2px solid #491f1f;
   width: 94.7%;
-  /* position: fixed;
-  top: 0;
-  left: 0; */
   z-index: 1;
 }
-/* .titile-cabe {
-    background-color: #09ff00;
-} */
+
+.titulos{
+    color: #d5dadf;
+  }
+
+.imagenes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Espacio entre imágenes */
+}
+.imagenes{
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x:auto;
+    width: 100%;
+    scrollbar-color: #000 #000;
+}
+
 
 .product-card {
     display: flex;
