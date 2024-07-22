@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import Product from "./components/Product";
 import { useFetch } from "./Hooks/useGetProducts";
-// import Header from "./components/Headers/Header.jsx";
+import Header from "./components/Menu/Header";
+
 
 export default function App() {
 
@@ -22,41 +23,40 @@ export default function App() {
     "https://fakestoreapi.com/products/category/women's%20clothing"
   );
 
+
   return (
     <>
-      <h1 className="titile-cabe">Get products</h1>
+      <h1 className="titile-cabe">SHOPING</h1>
+      <Header />
       {/* {loading && <p>Loading...</p>}
       {error && <p>Error</p>} */}
-      {/* {electronics.length <= 0 && !loading && <p>No hay productos</p>} */}{" "}
-      <div  className="titulos">
-        <h1>electronics</h1>
+      {}{" "}
+      <div className="titulos" id="electronics">
+        <h1>Electronics</h1>
         <div className="imagenes">
           {electronics.map((product, index) => (
             <Product key={index} {...product} />
           ))}
         </div>
       </div>
-
-      <div  className="titulos">
-        <h1>jewelery</h1>
+      <div className="titulos" id="jewelery">
+        <h1>Jewelery</h1>
         <div className="imagenes">
           {jewelery.map((product, index) => (
             <Product key={index} {...product} />
           ))}
         </div>
       </div>
-
-      <div  className="titulos">
-        <h1>mens clothing</h1>
+      <div className="titulos" id="mensclothing">
+        <h1>Mens Clothing</h1>
         <div className="imagenes">
           {mensclothing.map((product, index) => (
             <Product key={index} {...product} />
           ))}
         </div>
       </div>
-
-      <div  className="titulos">
-        <h1>womens clothing</h1>
+      <div className="titulos" id="womensclothing">
+        <h1>Womens Clothing</h1>
         <div className="imagenes">
           {womensclothing.map((product, index) => (
             <Product key={index} {...product} />
