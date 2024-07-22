@@ -5,6 +5,7 @@ import { useFetch } from "./Hooks/useGetProducts";
 import Header from "./components/Menu/Header";
 
 
+
 export default function App() {
 
   const { data: electronics } = useFetch(
@@ -31,7 +32,7 @@ export default function App() {
       {/* {loading && <p>Loading...</p>}
       {error && <p>Error</p>} */}
       {}{" "}
-      <div className="titulos" id="electronics">
+      <div className="titulos" name="electronics">
         <h1>Electronics</h1>
         <div className="imagenes">
           {electronics.map((product, index) => (
@@ -39,25 +40,28 @@ export default function App() {
           ))}
         </div>
       </div>
-      <div className="titulos" id="jewelery">
+
+      <div className="titulos1" name="jewelery">
         <h1>Jewelery</h1>
-        <div className="imagenes">
+        <div className="imagenes1">
           {jewelery.map((product, index) => (
             <Product key={index} {...product} />
           ))}
         </div>
       </div>
-      <div className="titulos" id="mensclothing">
+
+      <div className="titulos2" name="mensclothing">
         <h1>Mens Clothing</h1>
-        <div className="imagenes">
+        <div className="imagenes2">
           {mensclothing.map((product, index) => (
             <Product key={index} {...product} />
           ))}
         </div>
       </div>
-      <div className="titulos" id="womensclothing">
+
+      <div className="titulos3" name="womensclothing">
         <h1>Womens Clothing</h1>
-        <div className="imagenes">
+        <div className="imagenes3">
           {womensclothing.map((product, index) => (
             <Product key={index} {...product} />
           ))}

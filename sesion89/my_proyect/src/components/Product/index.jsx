@@ -4,7 +4,7 @@ import "./Product.css";
 const Product = ({ image, title, description, price, rating }) => {
   return (
     <div className="product-card">
-      <img src={image} alt="" />
+      <img src={image} alt={title} className="product-image" />
       <div className="product-data">
         <h3>{title}</h3>
         <p>{description}</p>
@@ -15,7 +15,7 @@ const Product = ({ image, title, description, price, rating }) => {
           <p className="rating">{rating?.rate | ""}</p>
         </div>
       </div>
-      <button>Comprar</button>
+      <button className="b-comprar">Comprar</button>
     </div>
   );
 };

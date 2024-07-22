@@ -1,36 +1,70 @@
- import React, { useState } from "react";
+import React, { useState } from "react";
 import "./Header.css";
 import Img from "../../assets/mmmppp.png";
+import {Link} from 'react-scroll'
 
 
 function Header() {
   const [activo, setactivo] = useState(false);
+
+  const [mostrarFormulario, setMostrarFormulario] = useState(false);
+  const toggleFormulario = () => {
+    setMostrarFormulario(!mostrarFormulario);
+  };
+
   return (
     <div className="contenido">
       <header className="header">
         <div className="container">
           <img className="logo" src={Img} />
           <nav>
-            <a href="#">Electronics</a>
-            <a href="#">Jewelery</a>
-            <a href="#">Men\'s Clothing</a>
-            <a href="#">Women\'s Clothing</a>
+            <Link to="electronics" smooth={true} duration={200}>
+              Electronics
+            </Link>
+            <Link to="jewelery" smooth={true} duration={200}>
+              Jewelery
+            </Link>
+            <Link to="mensclothing" smooth={true} duration={200}>
+              Men\'s Clothing
+            </Link>
+            <Link to="womensclothing" smooth={true} duration={200}>
+              Women\'s Clothing
+            </Link>
             {activo && (
               <div className="">
                 <h1>hola</h1>
               </div>
             )}
           </nav>
-          <button onClick={() => setactivo(!activo)}>Inicia Sesion</button>
-        </div>
 
-        <button className="class-menu-btn" id="menu-btn">
+          {mostrarFormulario && (
+            <div className="formulario">
+              <form>
+                <div className="campo">
+                  <label htmlFor="usuario">Usuario</label>
+                  <input type="text" id="usuario" name="usuario" />
+                </div>
+
+                <div className="campo">
+                  <label htmlFor="contrasena">Contraseña</label>
+                  <input type="password" id="contrasena" name="contrasena" />
+                </div>
+
+                <button type="submit">Iniciar Sesión</button>
+              </form>
+            </div>
+          )}
+        </div>
+        
+        <button className="btn-ini-sesion" onClick={toggleFormulario}>Iniciar Sesion</button>
+
+        {/* <button className="class-menu-btn" id="menu-btn">
           &#9776;
-        </button>
+        </button> */}
       </header>
     </div>
   );
 }
 
-export default Header; // Aquí se exporta NetflixHeader como default
+export default Header; 
 

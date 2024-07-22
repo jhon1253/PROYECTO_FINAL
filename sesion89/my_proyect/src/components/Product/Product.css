@@ -34,21 +34,76 @@ html, body{
 }
 
 
+.titulos1{
+    color: #d5dadf;
+  }
+.imagenes1 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Espacio entre imágenes */
+}
+.imagenes1{
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x:auto;
+    width: 100%;
+    scrollbar-color: #000 #000;
+}
+
+.titulos2{
+    color: #d5dadf;
+  }
+.imagenes2 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Espacio entre imágenes */
+}
+.imagenes2{
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x:auto;
+    width: 100%;
+    scrollbar-color: #000 #000;
+}
+
+
+.titulos3{
+    color: #d5dadf;
+  }
+.imagenes3 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Espacio entre imágenes */
+}
+.imagenes3{
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x:auto;
+    width: 100%;
+    scrollbar-color: #000 #000;
+}
+
+
+
 .product-card {
     display: flex;
     flex-direction: column;
+    padding: 20px;
     align-items: center;
     justify-content: center;
     width: 300px;
     /* height: 500px; */
     border: 1px solid #ccc;
     border-radius: 8px;
-    padding: 16px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     background-color: white;
     color: #333;
     transition: all 0.3s;
     margin-top: 20px;
+    
 }
 
 .product-card:hover {
@@ -57,15 +112,17 @@ html, body{
 }
 
 .product-card img {
-    width: 100%;
     height: auto;
     object-fit: cover;
     border-radius: 8px;
-    margin-bottom: 16px;
+    margin-bottom: 5px;
+    max-width: 100%;
+    height: auto;
 
 }
 
 .product-card h3 {
+    color: #020202;
     font-size: 10px;
     font-weight: bold;
     margin-bottom: 8px;
@@ -73,19 +130,23 @@ html, body{
 
 .product-card p {
     font-size: 14px;
-    color: #666;
+    color: #080808;
     margin-bottom: 16px;
 }
 
 .product-card button {
     background-color: #007bff;
     width: 100%;
-    color: #fff;
     border: none;
     border-radius: 4px;
     padding: 8px 16px;
     font-size: 14px;
     cursor: pointer;
+}
+.b-comprar{
+    display: flex;
+    color: #fff;
+    justify-content: center;
 }
 
 .product-card button:hover {
@@ -99,6 +160,7 @@ html, body{
     width: 100%;
     margin-bottom: 16px;
     /* position: absolute; */
+    margin-top: 10px;
 }
 
 .product-numbers {
@@ -135,4 +197,10 @@ html, body{
     border-radius: 50%;
     width: 40px;
     height: 40px;
+}
+
+.product-image {
+  max-width: 100%;
+  height: auto;
+  /* Ajusta el tamaño máximo y la altura según tus necesidades */
 }
