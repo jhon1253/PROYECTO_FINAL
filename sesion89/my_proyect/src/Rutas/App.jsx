@@ -1,13 +1,9 @@
 import { useEffect, useState } from "react";
-import "./App.css";
-import Product from "./components/Product";
-import { useFetch } from "./Hooks/useGetProducts";
-import Header from "./components/Menu/Header";
-
-
+import Product from "../components/Product";
+import { useFetch } from "../Hooks/useGetProducts";
+import Header from "../components/Menu/Header";
 
 export default function App() {
-
   const { data: electronics } = useFetch(
     "https://fakestoreapi.com/products/category/electronics"
   );
@@ -19,11 +15,10 @@ export default function App() {
   const { data: mensclothing } = useFetch(
     "https://fakestoreapi.com/products/category/men's%20clothing"
   );
-  
+
   const { data: womensclothing } = useFetch(
     "https://fakestoreapi.com/products/category/women's%20clothing"
   );
-
 
   return (
     <>
@@ -40,7 +35,6 @@ export default function App() {
           ))}
         </div>
       </div>
-
       <div className="titulos1" name="jewelery">
         <h1>Jewelery</h1>
         <div className="imagenes1">
@@ -49,7 +43,6 @@ export default function App() {
           ))}
         </div>
       </div>
-
       <div className="titulos2" name="mensclothing">
         <h1>Mens Clothing</h1>
         <div className="imagenes2">
@@ -58,7 +51,6 @@ export default function App() {
           ))}
         </div>
       </div>
-
       <div className="titulos3" name="womensclothing">
         <h1>Womens Clothing</h1>
         <div className="imagenes3">
@@ -67,6 +59,7 @@ export default function App() {
           ))}
         </div>
       </div>
+      <div></div>
     </>
   );
 }

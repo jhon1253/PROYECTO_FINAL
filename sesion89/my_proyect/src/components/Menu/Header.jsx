@@ -41,22 +41,25 @@ function Header() {
             <div className="formulario">
               <form>
                 <div className="campo">
-                  <label htmlFor="usuario">Usuario</label>
+                  <label htmlFor="usuario">User</label>
                   <input type="text" id="usuario" name="usuario" />
                 </div>
 
                 <div className="campo">
-                  <label htmlFor="contrasena">Contraseña</label>
+                  <label htmlFor="contrasena">Password</label>
                   <input type="password" id="contrasena" name="contrasena" />
                 </div>
 
-                <button type="submit">Iniciar Sesión</button>
+                <button type="submit">Login</button>
               </form>
             </div>
           )}
         </div>
-        
-        <button className="btn-ini-sesion" onClick={toggleFormulario}>Iniciar Sesion</button>
+
+        <button className="btn-ini-sesion" onClick={toggleFormulario}>
+          {" "}
+          <button type="submit">Login</button>
+        </button>
 
         {/* <button className="class-menu-btn" id="menu-btn">
           &#9776;
