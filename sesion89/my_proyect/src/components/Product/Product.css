@@ -14,10 +14,12 @@ body {
   border: 2px solid #491f1f;
   width: 94.7%;
   z-index: 1;
+  cursor: pointer;
 }
 
 .titulos {
   color: #d5dadf;
+  text-align: center;
 }
 
 .imagenes {
@@ -36,6 +38,7 @@ body {
 
 .titulos1 {
   color: #d5dadf;
+  text-align: center;
 }
 .imagenes1 {
   display: flex;
@@ -53,6 +56,7 @@ body {
 
 .titulos2 {
   color: #d5dadf;
+  text-align: center;
 }
 .imagenes2 {
   display: flex;
@@ -70,6 +74,7 @@ body {
 
 .titulos3 {
   color: #d5dadf;
+  text-align: center;
 }
 .imagenes3 {
   display: flex;
@@ -160,7 +165,8 @@ body {
   width: 100%;
   height: 50%;
   overflow-y: auto;
-  scrollbar-color: #007 #bada55;
+  scrollbar-color: transparent transparent;
+  /* scrollbar-color: #007 #bada55; */
   margin-bottom: 16px;
   /* position: absolute; */
   margin-top: 10px;

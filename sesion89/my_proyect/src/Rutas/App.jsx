@@ -24,8 +24,6 @@ export default function App() {
     <>
       <h1 className="titile-cabe">SHOPING</h1>
       <Header />
-      {/* {loading && <p>Loading...</p>}
-      {error && <p>Error</p>} */}
       {}{" "}
       <div className="titulos" name="electronics">
         <h1>Electronics</h1>
