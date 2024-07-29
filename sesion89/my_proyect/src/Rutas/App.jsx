@@ -3,6 +3,9 @@ import Product from "../components/Product";
 import { useFetch } from "../Hooks/useGetProducts";
 import Header from "../components/Menu/Header";
 import SearchBox from "../components/Search/Search";
+// import RegisterForm from "../components/Register/Register.jsx";
+
+
 
 export default function App() {
   const { data: electronics } = useFetch(
@@ -21,6 +24,12 @@ export default function App() {
     "https://fakestoreapi.com/products/category/women's%20clothing"
   );
 
+// const [openRegister, setOpenRegister] = useState(false);
+
+//   const mostrarRegister = () => {
+//     setOpenRegister(!openRegister);
+//   }
+
 
   const [searchTerm, setSearchTerm] = useState ("");
 
@@ -37,11 +46,12 @@ export default function App() {
 
   return (
     <>
-      <Header />
+      <Header /> 
+      {/* mostrarRegister={mostrarRegister} */}
+      {/* {openRegister && <RegisterForm />} */}
       <div className="search">
         <h1 className="titile-cabe">SHOPING</h1>
         <SearchBox searchTerm={searchTerm} onSearchChange={setSearchTerm} />
-        
       </div>
       {}{" "}
       <div className="titulos" name="electronics">

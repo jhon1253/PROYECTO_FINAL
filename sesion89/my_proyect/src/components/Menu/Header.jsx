@@ -61,9 +61,9 @@ function Header() {
           <button type="submit">Login</button>
         </button>
 
-        {/* { <button className="class-menu-btn" id="menu-btn">
+        { <button className="class-menu-btn" id="menu-btn">
           &#9776;
-        </button> } */}
+        </button> }
       </header>
     </div>
   );
