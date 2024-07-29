@@ -1,19 +1,22 @@
 .searchBoxContainer {
     display: flex;
-    align-items: center; /* Alinea verticalmente los elementos al centro */
-    padding: 10px;
-    background-color: blue;
+    align-items: center; /* Ali verticalmente */
 }
 
 .searchIcon {
-    margin-right: 10px; /* Ajusta el espacio entre el icono y el input */
-   color: aqua;
+  border: 1px solid #ccc; 
+  padding: 8px;
+  margin-right: 10px; 
+  margin-left: 10px;
+  color: aqua;
+  width: 20px; /* Cambia este valor para ajustar el ancho */
+  height: 20px; /* Cambia este valor para ajustar la altura */
 }
 
 input {
-    border: 1px solid #ccc; /* Ajusta el borde según el diseño deseado */
-    padding: 8px;
-    font-size: 16px; /* Ajusta el tamaño de la fuente según el diseño deseado */
+  border: 1px solid #ccc; 
+  padding: 8px;
+  font-size: 16px; /*tamaño de la fuente  */
 }
 
 
