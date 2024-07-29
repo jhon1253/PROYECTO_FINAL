@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Product from "../components/Product";
 import { useFetch } from "../Hooks/useGetProducts";
 import Header from "../components/Menu/Header";
+import SearchBox from "../components/Search/Search";
 
 export default function App() {
   const { data: electronics } = useFetch(
@@ -20,17 +21,36 @@ export default function App() {
     "https://fakestoreapi.com/products/category/women's%20clothing"
   );
 
+
+  const [searchTerm, setSearchTerm] = useState ("");
+
+  const filterPorducts = (products, searchTerm) =>{
+    return products.filter((product) =>
+      product.title.toLowerCase().includes(setSearchTerm.toLowerCase())
+    );
+  };
+
+  useEffect(() => {
+    [setSearchTerm, electronics, jewelery, mensclothing, womensclothing];
+  }
+)
+
   return (
     <>
-      <h1 className="titile-cabe">SHOPING</h1>
       <Header />
+      <div className="search">
+        <h1 className="titile-cabe">SHOPING</h1>
+        <SearchBox searchTerm={searchTerm} onSearchChange={setSearchTerm} />
+        
+      </div>
       {}{" "}
       <div className="titulos" name="electronics">
         <h1>Electronics</h1>
-        <div className="imagenes">
-          {electronics.map((product, index) => (
-            <Product key={index} {...product} />
-          ))}
+        <div className="product-container">
+          {electronics &&
+            electronics.map((product, index) => (
+              <Product key={index} {...product} />
+            ))}
         </div>
       </div>
       <div className="titulos1" name="jewelery">
