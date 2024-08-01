@@ -17,4 +17,4 @@ const Cart = ({ productsInCart }) => {
   );
 };
 
-export default Cart
+export default Cart;

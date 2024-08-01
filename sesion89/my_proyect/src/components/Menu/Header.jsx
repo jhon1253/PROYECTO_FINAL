@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import "./Header.css";
 import Img from "../../assets/mmmppp.png";
 import {Link} from 'react-scroll'
+import Cart from "../Cart/Cart";
 
 
-function Header() {
+function Header({productsInCart}) {
+
   const [activo, setactivo] = useState(false);
 
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
@@ -55,15 +57,21 @@ function Header() {
             </div>
           )}
         </div>
-
+ {/* dcjsodwoj */}
         <button className="btn-ini-sesion" onClick={toggleFormulario}>
           {" "}
           <button type="submit">Login</button>
         </button>
+        {
+          <button className="class-menu-btn" id="menu-btn">
+            &#9776;
+          </button>
+        }
 
-        { <button className="class-menu-btn" id="menu-btn">
-          &#9776;
-        </button> }
+        <button className="class-menu-btn" id="menu-btn">&#9776;</button>
+        <Cart productsInCart={productsInCart} />
+
+
       </header>
     </div>
   );
