@@ -15,7 +15,7 @@ function Header({productsInCart}) {
   };
 
   return (
-    <div className="contenido">
+    <div className="contenido " >
       <header className="header">
         <div className="container">
           <img className="logo" src={Img} />
