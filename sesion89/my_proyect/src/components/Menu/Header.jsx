@@ -20,7 +20,7 @@ function Header({productsInCart}) {
         <div className="container">
           <img className="logo" src={Img} />
           <nav>
-            <Link to="electronics" smooth={true} duration={200}>
+            <Link to="electronics"  smooth={true} duration={200}>
               Electronics
             </Link>
             <Link to="jewelery" smooth={true} duration={200}>
@@ -34,7 +34,7 @@ function Header({productsInCart}) {
             </Link>
             {activo && (
               <div className="">
-                <h1>hola</h1>
+                <h1 className="m-10">hola</h1>
               </div>
             )}
           </nav>

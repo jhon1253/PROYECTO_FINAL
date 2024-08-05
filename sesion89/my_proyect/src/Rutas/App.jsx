@@ -71,41 +71,58 @@ const [productsInCart,setProductsInCart] = useState (getCartProducts())
       <Header productsInCart={productsInCart} />
       {/* mostrarRegister={mostrarRegister} */}
       {/* {openRegister && <RegisterForm />} */}
-      <div className="search">
-        <h1 className="titile-cabe">SHOPING</h1>
-        <SearchBox searchTerm={searchTerm} onSearchChange={setSearchTerm} />
+      <div className="search flex justify-center">
+        <h1 className="  text-white ">SHOPING</h1>
+
+        {/* <SearchBox searchTerm={searchTerm} onSearchChange={setSearchTerm} /> */}
       </div>
       {}{" "}
       <div className="titulos" name="electronics">
-        <h1>Electronics</h1>
+        <h1 className="text-3xl text-white">Electronics</h1>
         <div className="product-container">
           {electronics &&
             electronics.map((product, index) => (
-              <Product onClick={() => addProductCart(product)} key={index} {...product} />
+              <Product
+                onClick={() => addProductCart(product)}
+                key={index}
+                {...product}
+              />
             ))}
         </div>
       </div>
       <div className="titulos1" name="jewelery">
-        <h1>Jewelery</h1>
+        <h1 className="text-3xl caret-white">Jewelery</h1>
         <div className="imagenes1">
           {jewelery.map((product, index) => (
-            <Product onClick={() => addProductCart(product)} key={index} {...product} />
+            <Product
+              onClick={() => addProductCart(product)}
+              key={index}
+              {...product}
+            />
           ))}
         </div>
       </div>
       <div className="titulos2" name="mensclothing">
-        <h1>Mens Clothing</h1>
+        <h1 className="text-3xl caret-white">Mens Clothing</h1>
         <div className="imagenes2">
           {mensclothing.map((product, index) => (
-            <Product onClick={() => addProductCart(product)} key={index} {...product} />
+            <Product
+              onClick={() => addProductCart(product)}
+              key={index}
+              {...product}
+            />
           ))}
         </div>
       </div>
       <div className="titulos3" name="womensclothing">
-        <h1>Womens Clothing</h1>
+        <h1 className="text-3xl caret-white">Womens Clothing</h1>
         <div className="imagenes3">
           {womensclothing.map((product, index) => (
-            <Product onClick={() => addProductCart(product)} key={index} {...product} />
+            <Product
+              onClick={() => addProductCart(product)}
+              key={index}
+              {...product}
+            />
           ))}
         </div>
       </div>
