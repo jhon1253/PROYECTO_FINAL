@@ -37,7 +37,7 @@ body {
   margin-right: 20px;
   cursor: pointer;
 }
-.header button {
+/* .header button {
   background-color: #1c1049;
   color: #ffffff;
   border: none;
@@ -45,7 +45,7 @@ body {
 
   cursor: pointer;
   padding: 10px;
-}
+} */
 .header .img {
   height: 55px;
 }
@@ -102,13 +102,25 @@ nav a:hover {
     42
   ); /* Color que deseas cuando el cursor está sobre el enlace */
 }
+
+
+/* botones */
 .header button {
   background-color: #d81f26;
   color: #fff;
   border: none;
   border-radius: 4px;
+  height: 40px;
   cursor: pointer;
-  padding: 10px;
+  margin-top: 15px;
+  /* padding: 10px; */
+}
+
+#menu-btn-Hamburguesa {
+  margin-right: 30px;
+  background-color: #d81f26;
+  height: 40px  !important;
+  width:  60px  !important;
 }
 
 @media (max-width: 568px) {
@@ -119,7 +131,7 @@ nav a:hover {
   .barra {
     height: 100%;
     width: 250px;
-    background: #141414;
+    background: #0c0b0b;
     position: fixed;
     top: 70px;
     right: -250px;
@@ -229,4 +241,9 @@ a:hover {
   cursor: pointer;
   padding: 10px 20px;
   margin-left: 30px;
+}
+
+.class-menu-btn {
+  display: flex;
+  padding: 10px;
 }

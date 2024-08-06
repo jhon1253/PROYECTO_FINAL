@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import "./Header.css";
 import Img from "../../assets/mmmppp.png";
-import {Link} from 'react-scroll'
+import { Link } from "react-scroll";
 import Cart from "../Cart/Cart";
 
-
-function Header({productsInCart}) {
-
+function Header({ productsInCart }) {
   const [activo, setactivo] = useState(false);
 
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
@@ -15,12 +13,12 @@ function Header({productsInCart}) {
   };
 
   return (
-    <div className="contenido " >
+    <div className="contenido ">
       <header className="header">
         <div className="container">
           <img className="logo" src={Img} />
           <nav>
-            <Link to="electronics"  smooth={true} duration={200}>
+            <Link to="electronics" smooth={true} duration={200}>
               Electronics
             </Link>
             <Link to="jewelery" smooth={true} duration={200}>
@@ -57,20 +55,22 @@ function Header({productsInCart}) {
             </div>
           )}
         </div>
-        <button className="btn-ini-sesion" onClick={toggleFormulario}>
+        <button
+          className="btn-ini-sesion"
+          type="submit"
+          onClick={toggleFormulario}
+        >
           {" "}
-          <button type="submit">Login</button>
+          Login
         </button>
 
-
-        <button className="class-menu-btn" id="menu-btn">&#9776;</button>
+        <button className="" id="menu-btn-Hamburguesa">
+          &#9776;
+        </button>
         <Cart productsInCart={productsInCart} />
-
-
       </header>
     </div>
   );
 }
 
-export default Header; 
-
+export default Header;

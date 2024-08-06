@@ -1,5 +1,6 @@
 .button_cart{
     display: flex;
+    padding: 10px;
     justify-content: center;
     align-items: center;
     position: relative;
@@ -16,6 +17,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    top: -16px;
+    top: -5px;
     left: 20px;
 }
