@@ -16,7 +16,7 @@ function Header({ productsInCart }) {
     <div className="contenido ">
       <header className="header">
         <div className="container">
-          <img className="logo" src={Img} />
+          <img className="hover:animate-bounce" src={Img} />
           <nav>
             <Link to="electronics" smooth={true} duration={200}>
               Electronics
