@@ -71,14 +71,14 @@ const [productsInCart,setProductsInCart] = useState (getCartProducts())
       <Header productsInCart={productsInCart} />
       {/* mostrarRegister={mostrarRegister} */}
       {/* {openRegister && <RegisterForm />} */}
-      <div className="search flex justify-center">
+      <div className="search flex justify-center mb-5">
         <h1 className="  text-white ">SHOPING</h1>
 
         {/* <SearchBox searchTerm={searchTerm} onSearchChange={setSearchTerm} /> */}
       </div>
       {}{" "}
       <div className="titulos" name="electronics">
-        <h1 className="text-3xl text-white">Electronics</h1>
+        <h1 className="text-3xl text-white mb-4  titulos bg-red-700 p-4 my-2 rounded-lg shadow-lg">Electronics</h1>
         <div className="product-container">
           {electronics &&
             electronics.map((product, index) => (
@@ -91,7 +91,7 @@ const [productsInCart,setProductsInCart] = useState (getCartProducts())
         </div>
       </div>
       <div className="titulos1" name="jewelery">
-        <h1 className="text-3xl caret-white">Jewelery</h1>
+        <h1 className="text-3xl text-white mb-4  titulos bg-red-700 p-4 my-2 rounded-lg shadow-lg">Jewelery</h1>
         <div className="imagenes1">
           {jewelery.map((product, index) => (
             <Product
@@ -103,7 +103,7 @@ const [productsInCart,setProductsInCart] = useState (getCartProducts())
         </div>
       </div>
       <div className="titulos2" name="mensclothing">
-        <h1 className="text-3xl caret-white">Mens Clothing</h1>
+        <h1 className="text-3xl text-white mb-4  titulos bg-red-700 p-4 my-2 rounded-lg shadow-lg">Mens Clothing</h1>
         <div className="imagenes2">
           {mensclothing.map((product, index) => (
             <Product
@@ -115,7 +115,7 @@ const [productsInCart,setProductsInCart] = useState (getCartProducts())
         </div>
       </div>
       <div className="titulos3" name="womensclothing">
-        <h1 className="text-3xl caret-white">Womens Clothing</h1>
+        <h1 className="text-3xl text-white mb-4  titulos bg-red-700 p-4 my-2 rounded-lg shadow-lg">Womens Clothing</h1>
         <div className="imagenes3">
           {womensclothing.map((product, index) => (
             <Product
