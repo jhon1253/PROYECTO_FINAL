@@ -22,8 +22,10 @@ const CartIcon = () => {
         <span className={styles.cartIconBadge}>{totalItems}</span>
       )}
       {showCart && (
-        <div className={styles.cartIconModal}>
-          <Cart/>
+        <div className="targeta">
+          <div className={styles.cartIconModal}>
+            <Cart />
+          </div>
         </div>
       )}
     </div>
