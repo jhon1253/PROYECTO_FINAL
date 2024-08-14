@@ -9,7 +9,7 @@ const Cart = () => {
     <div className={styles.cartContainer}>
       <h2 className={styles.listTitle}>LIST PRODUCTS</h2>
       {cart.length === 0 ? (
-        <p className={styles.emptyMessage}>PRODUCT BASKET</p>
+        <p className={styles.mensaje}>PRODUCT BASKET</p>
       ) : (
         <div>
           {cart.map((product, idx) => (

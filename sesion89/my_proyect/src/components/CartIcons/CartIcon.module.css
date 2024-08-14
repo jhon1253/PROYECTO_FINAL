@@ -33,9 +33,9 @@
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #f3e5f5; 
-    border: 5px solid #9c27b0; 
+    /* border: 5px solid #9c27b0;  */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 1rem;
+    /* padding: 10px; */
     z-index: 50;
     width: 30rem; 
     max-height: 25rem; 

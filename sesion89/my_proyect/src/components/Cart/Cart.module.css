@@ -1,25 +1,24 @@
-/* Contenedor principal del carrito */
 .cartContainer {
-  background-color: #f44336; /* Color de fondo */
-  padding: 16px;
+  background-color: #f44336; 
+  padding: 10px;
   border-radius: 8px;
   color: rgb(7, 7, 7);
 }
 
-/* Título de la lista de productos */
+
 .listTitle {
   text-align: center;
   margin: 16px 0;
   font-size: 1.5rem;
 }
 
-/* Mensaje cuando el carrito está vacío */
-.emptyMessage {
+
+.mensaje {
   text-align: center;
   font-size: 1rem;
 }
 
-/* Contenedor para cada producto en el carrito */
+
 .productItem {
   border: 1px solid #000000;
   background-color: #f0f0f0;
@@ -28,9 +27,9 @@
   border-radius: 8px;
 }
 
-/* Estilo del botón */
+
 .button {
-  background-color: #007bff; /* Color de fondo */
+  background-color: #007bff; 
   color: white;
   border: none;
   border-radius: 4px;
@@ -40,7 +39,7 @@
   margin-top: 10px;
 }
 
-/* Estilo del botón al pasar el ratón por encima */
+
 .button:hover {
   background-color: #0056b3;
 }
@@ -48,5 +47,5 @@
 
 
 
-/* products.list */
+
 
