@@ -4,7 +4,7 @@ import { CartContext } from "../context/CartContext";
 import styles from "./ProductList.module.css"; // Importa el CSS module
 
 const ProductList = () => {
-  const { addToCart } = useContext(CartContext);
+  const { addToCart } = useContext(CartContext); //fffff
 
   return (
     <div>

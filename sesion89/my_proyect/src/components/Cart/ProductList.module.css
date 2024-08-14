@@ -3,9 +3,12 @@
   border: 1px solid #ccc; /* Color del borde */
   border-radius: 8px; /* Esquinas redondeadas */
   background-color: #f9f9f9; /* Color de fondo */
-  padding: 16px; /* Espaciado interno */
-  margin-bottom: 16px; /* Espaciado inferior */
+  padding: 16px; 
+  margin-bottom: 16px;
 }
+
+
+
 
 /* Título del producto */
 .productTitle {
