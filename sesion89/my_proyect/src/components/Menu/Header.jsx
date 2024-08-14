@@ -2,39 +2,33 @@ import React, { useState } from "react";
 import "./Header.css";
 import Img from "../../assets/mmmppp.png";
 import { Link } from "react-scroll";
-import Cart from "../Cart/Cart";
+import CartIcon from "../CartIcons/CartIcon";
 
-function Header({ productsInCart }) {
-  const [activo, setactivo] = useState(false);
-
+function Header() {
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
+
   const toggleFormulario = () => {
     setMostrarFormulario(!mostrarFormulario);
   };
 
   return (
-    <div className="contenido ">
+    <div className="contenido">
       <header className="header">
         <div className="container">
-          <img className="hover:animate-bounce" src={Img} />
+          <img className="hover:animate-bounce" src={Img} alt="Logo" />
           <nav>
             <Link to="electronics" smooth={true} duration={200}>
               ELECTRONICS
             </Link>
             <Link to="jewelery" smooth={true} duration={200}>
-              JEWEJERY
+              JEWELERY
             </Link>
             <Link to="mensclothing" smooth={true} duration={200}>
               MEN'S CLOTHING
             </Link>
             <Link to="womensclothing" smooth={true} duration={200}>
-              Women'S CLOTHING
+              WOMEN'S CLOTHING
             </Link>
-            {activo && (
-              <div className="">
-                <h1 className="m-10">hola</h1>
-              </div>
-            )}
           </nav>
 
           {mostrarFormulario && (
@@ -55,19 +49,22 @@ function Header({ productsInCart }) {
             </div>
           )}
         </div>
-        <button
-          className="btn-ini-sesion"
-          type="submit"
-          onClick={toggleFormulario}
-        >
-          {" "}
-          Login
-        </button>
+        <div className="flex flex-row">
+          <button
+            className="btn-ini-sesion"
+            type="button"
+            onClick={toggleFormulario}
+          >
+            Login
+          </button>
+          <div className="text-lg  p-3 my-2 mx-20 ">
+            <CartIcon />
+          </div>
 
-        <button className="" id="menu-btn-Hamburguesa">
-          &#9776;
-        </button>
-        <Cart productsInCart={productsInCart} />
+          <button className="" id="menu-btn-Hamburguesa">
+            &#9776;
+          </button>
+        </div>
       </header>
     </div>
   );

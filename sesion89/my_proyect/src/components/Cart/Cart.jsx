@@ -1,19 +1,37 @@
-import React, { useMemo, useState } from "react";
-import { GiShoppingCart } from "react-icons/gi";
-import styles from "./Cart.module.css";
-import { getCartProducts } from "../../utils/localStorage";
+import React, { useContext } from "react";
+import { CartContext } from "../context/CartContext";
+import styles from "./Cart.module.css"; // Importa el CSS module
 
-const Cart = ({ productsInCart }) => {
+const Cart = () => {
+  const { cart, removeFromCart, clearCart } = useContext(CartContext);
+
   return (
-    <button className={styles.button_cart}>
-      <GiShoppingCart size={30} />
-      <p className={styles.products_in_cart}>
-        {productsInCart.reduce(
-          (accumulator, prod) => accumulator + prod.quantity,
-          0
-        )}
-      </p>
-    </button>
+    <div className={styles.cartContainer}>
+      <h2 className={styles.listTitle}>LIST PRODUCTS</h2>
+      {cart.length === 0 ? (
+        <p className={styles.emptyMessage}>PRODUCT BASKET</p>
+      ) : (
+        <div>
+          {cart.map((product, idx) => (
+            <div key={idx} className={styles.productItem}>
+              <h3>{product.name}</h3>
+              <p>{product.description}</p>
+              <p>{product.price}</p>
+              <p>Cantidad: {product.quantity}</p>
+              <button
+                className={styles.button}
+                onClick={() => removeFromCart(product)}
+              >
+                Eliminar del carrito
+              </button>
+            </div>
+          ))}
+          <button className={styles.button} onClick={() => clearCart()}>
+            Vaciar carrito
+          </button>
+        </div>
+      )}
+    </div>
   );
 };
 
