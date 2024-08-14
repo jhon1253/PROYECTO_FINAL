@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
+import { CartContext } from "../context/CartContext"; // Ajusta la ruta según tu estructura
 import "./Product.css";
 
-const Product = ({ image, title, description, price, rating, onClick }) => {
+const Product = ({ image, title, description, price, rating }) => {
+  const { addToCart } = useContext(CartContext);
+
+  const handleClick = () => {
+    const product = { image, title, description, price, rating, id: title }; // Aquí asumimos que el título es único para simplificar
+    addToCart(product);
+  };
+
   return (
     <div className="product-card">
       <div className="portada">
@@ -22,7 +30,7 @@ const Product = ({ image, title, description, price, rating, onClick }) => {
         <p className="rating">{rating?.rate || ""}</p>
       </div>
       <div className="div_btn-comprar">
-        <button onClick={onClick} className="b-comprar">
+        <button onClick={handleClick} className="b-comprar">
           Comprar
         </button>
       </div>

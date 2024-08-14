@@ -3,7 +3,7 @@
   background-color: #f44336; /* Color de fondo */
   padding: 16px;
   border-radius: 8px;
-  color: white;
+  color: rgb(7, 7, 7);
 }
 
 /* Título de la lista de productos */
@@ -21,7 +21,7 @@
 
 /* Contenedor para cada producto en el carrito */
 .productItem {
-  border: 1px solid #ccc;
+  border: 1px solid #000000;
   background-color: #f0f0f0;
   margin-bottom: 10px;
   padding: 10px;
