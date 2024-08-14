@@ -1,0 +1,44 @@
+/* Contenedor principal del producto */
+.productContainer {
+  border: 1px solid #ccc; /* Color del borde */
+  border-radius: 8px; /* Esquinas redondeadas */
+  background-color: #f9f9f9; /* Color de fondo */
+  padding: 16px; /* Espaciado interno */
+  margin-bottom: 16px; /* Espaciado inferior */
+}
+
+/* Título del producto */
+.productTitle {
+  font-size: 1.5rem; /* Tamaño del texto */
+  margin: 0 0 8px 0; /* Espaciado alrededor del título */
+  color: #333; /* Color del texto */
+}
+
+/* Descripción del producto */
+.productDescription {
+  font-size: 1rem; /* Tamaño del texto */
+  color: #666; /* Color del texto */
+  margin: 8px 0; /* Espaciado alrededor de la descripción */
+}
+
+/* Precio del producto */
+.productPrice {
+  font-size: 1.2rem; /* Tamaño del texto */
+  color: #000; /* Color del texto */
+  margin: 8px 0; /* Espaciado alrededor del precio */
+}
+
+/* Botón de agregar al carrito */
+.addButton {
+  background-color: #007bff; /* Color de fondo del botón */
+  color: white; /* Color del texto del botón */
+  border: none; /* Sin borde */
+  border-radius: 4px; /* Esquinas redondeadas */
+  padding: 8px 16px; /* Espaciado interno del botón */
+  font-size: 1rem; /* Tamaño del texto */
+  cursor: pointer; /* Cursor de mano al pasar sobre el botón */
+}
+
+.addButton:hover {
+  background-color: #0056b3; /* Color de fondo del botón al pasar el ratón */
+}
