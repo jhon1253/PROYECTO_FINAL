@@ -28,41 +28,47 @@ export default function App() {
     <>
       <Header />
 
-      <div className="search">
-        <h1 className="title">SHOPPING</h1>
-      </div>
-      <div className="section" name="electronics">
-        <h1 className="heading">Electronics</h1>
-        <div className="product-container">
-          {electronics &&
-            electronics.map((product, index) => (
+      <div className="vacalola">
+
+
+        <div className="search">
+          <h1 className="title">SHOPPING</h1>
+        </div>
+        <div className="section" name="electronics">
+          <h1 className="heading">Electronics</h1>
+          <div className="product-container">
+            {electronics &&
+              electronics.map((product, index) => (
+                <Product key={index} {...product} />
+              ))}
+          </div>
+        </div>
+        <div className="section" name="jewelery">
+          <h1 className="heading">Jewelery</h1>
+          <div className="product-container">
+            {jewelery.map((product, index) => (
               <Product key={index} {...product} />
             ))}
+          </div>
         </div>
-      </div>
-      <div className="section" name="jewelery">
-        <h1 className="heading">Jewelery</h1>
-        <div className="product-container">
-          {jewelery.map((product, index) => (
-            <Product key={index} {...product} />
-          ))}
+        <div className="section" name="mensclothing">
+          <h1 className="heading">Men's Clothing</h1>
+          <div className="product-container">
+            {mensclothing.map((product, index) => (
+              <Product key={index} {...product} />
+            ))}
+          </div>
         </div>
-      </div>
-      <div className="section" name="mensclothing">
-        <h1 className="heading">Men's Clothing</h1>
-        <div className="product-container">
-          {mensclothing.map((product, index) => (
-            <Product key={index} {...product} />
-          ))}
+        <div className="section" name="womensclothing">
+          <h1 className="heading">Women's Clothing</h1>
+          <div className="product-container">
+            {womensclothing.map((product, index) => (
+              <Product key={index} {...product} />
+            ))}
+          </div>
         </div>
-      </div>
-      <div className="section" name="womensclothing">
-        <h1 className="heading">Women's Clothing</h1>
-        <div className="product-container">
-          {womensclothing.map((product, index) => (
-            <Product key={index} {...product} />
-          ))}
-        </div>
+
+
       </div>
     </>
   );

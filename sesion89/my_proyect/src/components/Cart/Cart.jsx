@@ -8,13 +8,10 @@ const Cart = () => {
   return (
     <div className={styles.cartContainer}>
       <h2 className={styles.listTitle}>LIST PRODUCTS</h2>
-      {cart.length === 0 ? (
-        <p className={styles.mensaje}>PRODUCT BASKET</p>
-      ) : (
-        <div>
           {cart.map((product, idx) => (
             <div key={idx} className={styles.productItem}>
-              <h3>{product.name}</h3>
+              <p>{product.title}</p>
+              <img src={product.image} alt="" />
               <p>{product.description}</p>
               <p>{product.price}</p>
               <p>Cantidad: {product.quantity}</p>
@@ -29,8 +26,8 @@ const Cart = () => {
           <button className={styles.button} onClick={() => clearCart()}>
             Vaciar carrito
           </button>
-        </div>
-      )}
+        
+      
     </div>
   );
 };

@@ -11,7 +11,7 @@ html, body {
 .search {
   display: flex;
   justify-content: center;
-  background-color: #4e4646;
+  background-color: #007bff;
   border: 2px solid #491f1f;
   padding: 15px;
   font-size: 20px;
@@ -49,7 +49,7 @@ html, body {
 /* Product card (assumed to be in Product component) */
 .product-card {
   display: flex;
-  background-color: rgba(211, 41, 41, 0.705);
+  background-color: #db0000;
   flex-direction: column;
   width: 200px;
   min-width: 200px;
@@ -106,7 +106,7 @@ html, body {
 }
 
 .product-card button:hover {
-  background-color: #db0000;
+  background-color: #1f1c1c;
 }
 
 /* Rating */
@@ -115,7 +115,7 @@ html, body {
   align-items: center;
   justify-content: center;
   margin-bottom: 8px;
-  background-color: #db0000;
+  background-color: #007bff;
   color: #ffffff;
   border-radius: 50%;
   width: 40px;
