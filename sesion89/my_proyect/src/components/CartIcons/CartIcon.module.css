@@ -38,6 +38,8 @@
   width: 32rem;
   max-height: 30rem;
   overflow-y: auto;
+  border: 20px solid #000000d8;
+  background-color: #5ebfdd;
 }
 
 .targeta {
