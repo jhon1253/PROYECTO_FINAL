@@ -1,56 +1,68 @@
-/* .cartContainer {
-  background-color: #f44336; 
+.cartContainer {
   padding: 10px;
   border-radius: 8px;
   color: rgb(7, 7, 7);
-} */
+  background-color: #fff; /* Fondo blanco para el contenedor del carrito */
+  border: 1px solid #ddd; /* Borde gris claro para el contenedor del carrito */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  overflow-x: auto; /* Permite el scroll horizontal si hay muchos productos */
+}
 
+.titleTarget {
+  text-align: center; /* Centra el título */
+  margin-bottom: 10px;
+}
+
+.targetContent {
+  display: flex; /* Usa flexbox para alinear los productos */
+  flex-direction: row-reverse; /* Coloca los productos de derecha a izquierda */
+  flex-wrap: nowrap; /* Evita que los productos se envuelvan a la siguiente línea */
+  gap: 10px; /* Espaciado entre productos */
+  align-items: flex-start; /* Alinea los productos al principio del contenedor */
+}
 
 .listTitle {
-  text-align: center;
-  margin: 16px 0;
   font-size: 1.5rem;
+  color: #333; /* Color del texto del título */
 }
-
-
-.emptyMessage {
-  text-align: center;
-  font-size: 1rem;
-}
-
 
 .productItem {
-  border: 1px solid #000000;
-  background-color: #f0f0f0;
-  margin-bottom: 10px;
-  padding: 10px;
+  border: 1px solid #ddd; /* Borde gris claro para los productos */
+  background-color: #f9f9f9; /* Fondo muy claro para los productos */
+  padding: 15px; /* Espaciado interno de los productos */
   border-radius: 8px;
-
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: column; /* Organiza el contenido del producto en una columna */
+  align-items: center; /* Centra el contenido del producto */
   text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave para productos */
+  min-width: 200px; /* Ancho mínimo para los productos */
 }
 
+.productItem img {
+  max-width: 100%; /* Limita el ancho máximo de la imagen al contenedor */
+  height: auto; /* Mantiene la proporción de la imagen */
+  border-radius: 4px; /* Bordes redondeados para la imagen */
+  margin-bottom: 10px; /* Espaciado inferior para separar la imagen del texto */
+}
 
 .button {
-  background-color: #007bff; 
-  color: white;
-  border: none;
-  border-radius: 4px;
-  padding: 8px 16px;
-  font-size: 14px;
-  cursor: pointer;
-  margin-top: 10px;
+  background-color: #007bff; /* Fondo azul para los botones */
+  color: #fff; /* Color blanco para el texto del botón */
+  border: none; /* Elimina el borde del botón */
+  border-radius: 4px; /* Bordes redondeados */
+  padding: 8px 16px; /* Espaciado interno del botón */
+  font-size: 14px; /* Tamaño del texto del botón */
+  cursor: pointer; /* Cursor de puntero al pasar sobre el botón */
+  margin-top: 10px; /* Espaciado superior para separar el botón del contenido superior */
+  transition: background-color 0.3s; /* Transición suave para el cambio de color */
 }
-
 
 .button:hover {
-  background-color: #0056b3;
+  background-color: #0056b3; /* Cambia el color del fondo al pasar el ratón sobre el botón */
 }
 
-
-
-
-
-
+.button:disabled {
+  background-color: #ccc; /* Fondo gris para botones deshabilitados */
+  cursor: not-allowed; /* Cursor de no permitido para botones deshabilitados */
+}
