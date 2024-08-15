@@ -161,11 +161,6 @@ nav a:hover {
   color: #fff;
 }
 
-/* nav {
-  background-color: #292727;
-  padding: 1rem;
-} */
-
 ul {
   list-style-type: none;
   margin: 0;
@@ -214,7 +209,7 @@ a:hover {
 }
 
 .header .formulario input {
-  width: 100%; /* Ocupa todo el ancho disponible */
+  width: 100%; 
   padding: 8px;
   margin-top: 5px;
   border: 1px solid #ccc;
@@ -233,14 +228,12 @@ a:hover {
 }
 
 .header .btn-ini-sesion {
-  /* margin-right: 30px; */
   background-color: #d81f26;
   color: #fff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   padding: 10px 20px;
-  /* margin-left: 30px; */
 }
 
 .class-menu-btn {

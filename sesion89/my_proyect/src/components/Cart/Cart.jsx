@@ -8,30 +8,44 @@ const Cart = () => {
   return (
     <div className={styles.cartContainer}>
       <div className={styles.titleTarget}>
-        <h2 className={styles.listTitle}>LIST PRODUCTS</h2>
+        <h2 className={styles.listTitle}>You Shopping Cart</h2>
+        {/* Opcional: Aquí puedes agregar otros elementos como un subtítulo o información adicional */}
       </div>
 
       <div className={styles.targetContent}>
-        {cart.map((product, idx) => (
-          <div key={idx} className={styles.productItem}>
-            <p>{product.title}</p>
-            <img src={product.image} alt="" />
-            <p>{product.description}</p>
-            <p>{product.price}</p>
-            <p>Cantidad: {product.quantity}</p>
-            <button
-              className={styles.button}
-              onClick={() => removeFromCart(product)}
-            >
-              Eliminar del carrito
-            </button>
-          </div>
-        ))}
+        {cart.length === 0 ? (
+          <p className={styles.emptyMessage}>Your cart Shopping is empty</p>
+        ) : (
+          cart.map((product) => (
+            <div key={product.id} className={styles.productItem}>
+              <h3 className={styles.productName}>{product.name}</h3>
+              <img
+                src={product.image}
+                alt={product.name}
+                className={styles.productImage}
+              />
+              <p>{product.description}</p>
+              <p className={styles.productPrice}>${product.price.toFixed(2)}</p>
+              <p>Cantidad: {product.quantity}</p>
+              <button
+                className={styles.button}
+                onClick={() => removeFromCart(product)}
+                aria-label={`Remove ${product.name} from cart`}
+              >
+                Delete From Cart
+              </button>
+            </div>
+          ))
+        )}
       </div>
 
-      <div>
-        <button className={styles.button} onClick={() => clearCart()}>
-          Vaciar carrito
+      <div className={styles.clearButtonContainer}>
+        <button
+          className={styles.button}
+          onClick={clearCart}
+          aria-label="Clear all items from cart"
+        >
+          Clear Cart
         </button>
       </div>
     </div>

@@ -18,7 +18,7 @@ const CartIcon = () => {
         onClick={() => setShowCart(!showCart)}
       ></i>
 
-      {totalItems > 0 && (
+      {totalItems > 0 &&  (
         <span className={styles.cartIconBadge}>{totalItems}</span>
       )}
       {showCart && (
