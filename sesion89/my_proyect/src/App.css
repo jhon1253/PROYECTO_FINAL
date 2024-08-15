@@ -49,7 +49,7 @@ html, body {
 /* Product card (assumed to be in Product component) */
 .product-card {
   display: flex;
-  background-color: #db0000;
+  background-color: #f7f4f4;
   flex-direction: column;
   width: 200px;
   min-width: 200px;

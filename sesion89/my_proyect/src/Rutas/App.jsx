@@ -28,7 +28,7 @@ export default function App() {
     <>
       <Header />
 
-      <div className="vacalola">
+      
 
 
         <div className="search">
@@ -69,7 +69,7 @@ export default function App() {
         </div>
 
 
-      </div>
+  
     </>
   );
 }

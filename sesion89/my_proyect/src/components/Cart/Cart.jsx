@@ -7,11 +7,11 @@ const Cart = () => {
 
   return (
     <div className={styles.cartContainer}>
-      <div className="titleTarget">
+      <div className={styles.titleTarget}>
         <h2 className={styles.listTitle}>LIST PRODUCTS</h2>
       </div>
 
-      <div className="targetContent">
+      <div className={styles.targetContent}>
         {cart.map((product, idx) => (
           <div key={idx} className={styles.productItem}>
             <p>{product.title}</p>
@@ -29,14 +29,11 @@ const Cart = () => {
         ))}
       </div>
 
-
       <div>
         <button className={styles.button} onClick={() => clearCart()}>
           Vaciar carrito
         </button>
       </div>
-
-      
     </div>
   );
 };

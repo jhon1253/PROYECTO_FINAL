@@ -35,7 +35,7 @@ function Header() {
             <div className="formulario">
               <form>
                 <div className="campo">
-                  <label htmlFor="usuario">User</label>
+                  <label htmlFor="usuario">Email</label>
                   <input type="text" id="usuario" name="usuario" />
                 </div>
 
