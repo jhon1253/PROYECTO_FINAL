@@ -11,10 +11,12 @@ html, body {
 .search {
   display: flex;
   justify-content: center;
-  background-color: #007bff;
-  border: 2px solid #491f1f;
   padding: 15px;
   font-size: 20px;
+  background-color: #373d00;
+  border: 2px solid #491f1f;
+  flex-direction: row;
+  align-items: baseline;
 }
 
 

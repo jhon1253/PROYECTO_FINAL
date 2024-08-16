@@ -57,7 +57,7 @@ function Header() {
           >
             Login
           </button>
-          <div className="text-lg  p-3 my-2 mx-20 ">
+          <div  className="text-lg  p-3 my-2 mx-20 ">
             <CartIcon />
           </div>
 

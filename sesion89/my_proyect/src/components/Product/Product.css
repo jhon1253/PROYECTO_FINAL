@@ -15,15 +15,6 @@ body {
   z-index: 1;
   cursor: pointer;
 }
-.search{
-  display: flex;
-  background-color: #4e464650;
-  border: 2px solid #491f1f;
-  padding: 15px;
-  font-size: 20px;
-  flex-direction: row;
-  align-items: baseline;
-}
 
 .titulos {
   font-size: 30px;
