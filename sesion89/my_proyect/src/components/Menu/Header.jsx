@@ -3,12 +3,31 @@ import "./Header.css";
 import Img from "../../assets/mmmppp.png";
 import { Link } from "react-scroll";
 import CartIcon from "../CartIcons/CartIcon";
+import RegisterForm from "../Register/Register";
+import Login from "../Login/Login";
+import { signOut } from "firebase/auth";
+import { auth } from "../../fireBase/credenciales";
 
 function Header() {
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
+  const [mostrarRegistro, setMostrarRegistro] = useState(false);
 
   const toggleFormulario = () => {
     setMostrarFormulario(!mostrarFormulario);
+  };
+
+  const toggleRegistro = () => {
+    setMostrarRegistro(!mostrarRegistro);
+    // setMostrarFormulario(false);
+  };
+
+  const cerrarLogin = async () => {
+    try {
+      await signOut(auth);
+      console.log("sesion cerrada");
+    } catch (error) {
+      console.log("No cerro la sesion");
+    }
   };
 
   return (
@@ -31,25 +50,31 @@ function Header() {
             </Link>
           </nav>
 
-          {mostrarFormulario && (
+          {(mostrarFormulario || mostrarRegistro) && (
             <div className="formulario">
-              <form>
-                <div className="campo">
-                  <label htmlFor="usuario">Email</label>
-                  <input type="text" id="usuario" name="usuario" />
-                </div>
+              {mostrarFormulario ? (
+                // <form>
+                //   <div className="campo">
+                //     <label htmlFor="usuario">Email</label>
+                //     <input type="text" id="usuario" name="usuario" />
+                //   </div>
 
-                <div className="campo">
-                  <label htmlFor="contrasena">Password</label>
-                  <input type="password" id="contrasena" name="contrasena" />
-                </div>
+                //   <div className="campo">
+                //     <label htmlFor="contrasena">Password</label>
+                //     <input type="password" id="contrasena" name="contrasena" />
+                //   </div>
 
-                <button type="submit">Login</button>
-              </form>
+                //   <button type="submit">Login</button>
+                // </form>
+                <Login></Login>
+              ) : (
+                <RegisterForm />
+              )}
             </div>
           )}
         </div>
         <div className="flex flex-row">
+          <button onClick={cerrarLogin}>Close Session</button>
           <button
             className="btn-ini-sesion"
             type="button"
@@ -57,7 +82,16 @@ function Header() {
           >
             Login
           </button>
-          <div  className="text-lg  p-3 my-2 mx-20 ">
+          <a href="/register">
+            <button
+              className="btn-ini-registro"
+              type="button"
+              // onClick={toggleRegistro}
+            >
+              SingUp
+            </button>
+          </a>
+          <div className="text-lg p-3 my-2 mx-20">
             <CartIcon />
           </div>
 

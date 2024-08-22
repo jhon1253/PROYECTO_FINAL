@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "./Register.module.css";
 
 const RegisterForm = () => {
@@ -43,7 +43,7 @@ const RegisterForm = () => {
   return (
     <form onSubmit={handleSubmit} className="login-form">
       <label htmlFor="name" className="login-label">
-        Nombre:
+        Name:
       </label>
       <input
         type="text"
@@ -54,7 +54,7 @@ const RegisterForm = () => {
       />
       <br />
       <label htmlFor="surname" className="login-label">
-        Apellido:
+        LastName:
       </label>
       <input
         type="text"
@@ -76,7 +76,7 @@ const RegisterForm = () => {
       />
       <br />
       <label htmlFor="password" className="login-label">
-        Contraseña:
+        Password:
       </label>
       <input
         type="password"
@@ -87,7 +87,7 @@ const RegisterForm = () => {
       />
       <br />
       <label htmlFor="confirm-password" className="login-label">
-        Confirmar Contraseña:
+        Confirm Password:
       </label>
       <input
         type="password"
@@ -99,7 +99,7 @@ const RegisterForm = () => {
       <br />
       {error && <p className="login-error">{error}</p>}
       <button type="submit" className="login-button">
-        Registrarse
+        Sing Up
       </button>
     </form>
   );

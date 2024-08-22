@@ -236,6 +236,15 @@ a:hover {
   padding: 10px 20px;
 }
 
+.header .btn-ini-registro {
+  background-color: #d81f26;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding:5px 20px;
+}
+
 .class-menu-btn {
   display: flex;
   padding: 10px;
