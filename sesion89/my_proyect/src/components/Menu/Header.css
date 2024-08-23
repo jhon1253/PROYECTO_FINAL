@@ -234,6 +234,7 @@ a:hover {
   border-radius: 4px;
   cursor: pointer;
   padding: 10px 20px;
+  margin: 8px;
 }
 
 .header .btn-ini-registro {
@@ -243,6 +244,17 @@ a:hover {
   border-radius: 4px;
   cursor: pointer;
   padding:5px 20px;
+  margin: 8px;
+}
+
+.header .btn-ini-cerrarsesion{
+  background-color: #d81f26;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding:5px 20px;
+  margin: 8px;
 }
 
 .class-menu-btn {

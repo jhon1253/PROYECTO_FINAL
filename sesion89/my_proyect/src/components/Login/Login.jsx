@@ -26,15 +26,20 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      await createUserWithEmailAndPassword(auth, Email, password);
-      if(users){
-          await fetch("http://localhost:3000/usuarios", {
-            method: "POST",
-            headers: { "Content-Type": "aplication/json" },
-            body: JSON.stringify({ uid_usuario : users.uid, correo_electronico: Email }),
-          });
-        
-      }
+      const UsuarioCredenciales = await createUserWithEmailAndPassword(
+        auth,
+        Email,
+        password
+      );
+      const User = UsuarioCredenciales.user
+      await fetch("http://localhost:3000/usuarios", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          uid_usuario: User.uid,
+          correo_electronico: Email,
+        }),
+      });
     } catch (error) {
       console.log("Error al crear cuenta", error);
     }

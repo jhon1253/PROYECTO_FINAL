@@ -1,0 +1,71 @@
+/* Estilos generales para el contenedor del formulario */
+.container-register {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+}
+
+/* Estilos de la tarjeta */
+.login-form {
+  background-color: #333; /* Fondo negro */
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+}
+
+/* Estilos de las etiquetas */
+.login-label {
+  display: block;
+  margin-bottom: 8px;
+  color: #fff; /* Color de texto blanco */
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Estilos de los campos de entrada */
+.login-input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+  background-color: #fff; /* Fondo blanco para entradas */
+  color: #333; /* Color de texto negro */
+}
+
+/* Estilo del botón */
+.login-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #e74c3c; /* Rojo */
+  color: #fff; /* Blanco */
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover del botón */
+.login-button:hover {
+  background-color: #c0392b; /* Rojo más oscuro */
+}
+
+/* Estilo para el mensaje de error */
+.login-error {
+  color: #e74c3c; /* Rojo */
+  background-color: #ffe5e5;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+}

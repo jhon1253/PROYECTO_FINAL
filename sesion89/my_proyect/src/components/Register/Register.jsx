@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Register.module.css";
+import "./Register.css";
 
 const RegisterForm = () => {
   const [name, setName] = useState("");
@@ -41,67 +41,69 @@ const RegisterForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="login-form">
-      <label htmlFor="name" className="login-label">
-        Name:
-      </label>
-      <input
-        type="text"
-        id="name"
-        value={name}
-        onChange={(event) => setName(event.target.value)}
-        className="login-input"
-      />
-      <br />
-      <label htmlFor="surname" className="login-label">
-        LastName:
-      </label>
-      <input
-        type="text"
-        id="surname"
-        value={surname}
-        onChange={(event) => setSurname(event.target.value)}
-        className="login-input"
-      />
-      <br />
-      <label htmlFor="email" className="login-label">
-        Email:
-      </label>
-      <input
-        type="email"
-        id="email"
-        value={email}
-        onChange={(event) => setEmail(event.target.value)}
-        className="login-input"
-      />
-      <br />
-      <label htmlFor="password" className="login-label">
-        Password:
-      </label>
-      <input
-        type="password"
-        id="password"
-        value={password}
-        onChange={(event) => setPassword(event.target.value)}
-        className="login-input"
-      />
-      <br />
-      <label htmlFor="confirm-password" className="login-label">
-        Confirm Password:
-      </label>
-      <input
-        type="password"
-        id="confirm-password"
-        value={confirmPassword}
-        onChange={(event) => setConfirmPassword(event.target.value)}
-        className="login-input"
-      />
-      <br />
-      {error && <p className="login-error">{error}</p>}
-      <button type="submit" className="login-button">
-        Sing Up
-      </button>
-    </form>
+    <div className="container-register">
+      <form onSubmit={handleSubmit} className="login-form">
+        <label htmlFor="name" className="login-label">
+          Name:
+        </label>
+        <input
+          type="text"
+          id="name"
+          value={name}
+          onChange={(event) => setName(event.target.value)}
+          className="login-input"
+        />
+        <br />
+        <label htmlFor="surname" className="login-label">
+          LastName:
+        </label>
+        <input
+          type="text"
+          id="surname"
+          value={surname}
+          onChange={(event) => setSurname(event.target.value)}
+          className="login-input"
+        />
+        <br />
+        <label htmlFor="email" className="login-label">
+          Email:
+        </label>
+        <input
+          type="email"
+          id="email"
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}
+          className="login-input"
+        />
+        <br />
+        <label htmlFor="password" className="login-label">
+          Password:
+        </label>
+        <input
+          type="password"
+          id="password"
+          value={password}
+          onChange={(event) => setPassword(event.target.value)}
+          className="login-input"
+        />
+        <br />
+        <label htmlFor="confirm-password" className="login-label">
+          Confirm Password:
+        </label>
+        <input
+          type="password"
+          id="confirm-password"
+          value={confirmPassword}
+          onChange={(event) => setConfirmPassword(event.target.value)}
+          className="login-input"
+        />
+        <br />
+        {error && <p className="login-error">{error}</p>}
+        <button type="submit" className="login-button">
+          Sing Up
+        </button>
+      </form>
+    </div>
   );
 };
 

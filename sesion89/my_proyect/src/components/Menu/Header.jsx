@@ -1,25 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Header.css";
 import Img from "../../assets/mmmppp.png";
 import { Link } from "react-scroll";
 import CartIcon from "../CartIcons/CartIcon";
 import RegisterForm from "../Register/Register";
 import Login from "../Login/Login";
-import { signOut } from "firebase/auth";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../../fireBase/credenciales";
 
 function Header() {
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
   const [mostrarRegistro, setMostrarRegistro] = useState(false);
-
+  const [Email, setEmail] = useState("");
   const toggleFormulario = () => {
     setMostrarFormulario(!mostrarFormulario);
   };
 
-  const toggleRegistro = () => {
-    setMostrarRegistro(!mostrarRegistro);
-    // setMostrarFormulario(false);
-  };
+  // const toggleRegistro = () => {
+  //   setMostrarRegistro(!mostrarRegistro);
+  //   setMostrarFormulario(false);
+  // };
 
   const cerrarLogin = async () => {
     try {
@@ -29,7 +29,15 @@ function Header() {
       console.log("No cerro la sesion");
     }
   };
-
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setEmail(user.email);
+      } else {
+        console.log("Usuario no encontrado");
+      }
+    });
+  }, []);
   return (
     <div className="contenido">
       <header className="header">
@@ -48,6 +56,7 @@ function Header() {
             <Link to="womensclothing" smooth={true} duration={200}>
               WOMEN'S CLOTHING
             </Link>
+            {Email}
           </nav>
 
           {(mostrarFormulario || mostrarRegistro) && (
@@ -74,13 +83,15 @@ function Header() {
           )}
         </div>
         <div className="flex flex-row">
-          <button onClick={cerrarLogin}>Close Session</button>
+          <button className="btn-ini-cerrarsesion" onClick={cerrarLogin}>
+            SIGNOUT
+          </button>
           <button
             className="btn-ini-sesion"
             type="button"
             onClick={toggleFormulario}
           >
-            Login
+            LOGIN
           </button>
           <a href="/register">
             <button
@@ -88,7 +99,7 @@ function Header() {
               type="button"
               // onClick={toggleRegistro}
             >
-              SingUp
+              SINGUP
             </button>
           </a>
           <div className="text-lg p-3 my-2 mx-20">
