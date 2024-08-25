@@ -27,10 +27,6 @@ export default function App() {
   return (
     <>
       <Header />
-
-      
-
-
         <div className="search">
           <h1 className="title">SHOPPING</h1>
         </div>

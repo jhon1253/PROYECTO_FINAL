@@ -5,59 +5,66 @@ html, body {
   background-color: #000000;
   margin: 0;
   padding: 0;
+  box-sizing: border-box; /* Incluye padding y border en el ancho total */
 }
 
 /* Header and search section */
 .search {
-  display: flex;
-  justify-content: center;
-  padding: 15px;
-  font-size: 20px;
-  background-color: #373d00;
-  border: 2px solid #491f1f;
-  flex-direction: row;
-  align-items: baseline;
+  text-align: center;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
 }
 
-
-
-.title {
-  color: #ffffff;
+.search .title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
 }
 
 /* Section titles */
 .section {
   text-align: center;
-  color: #dfd5d5;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
 }
 
-.heading {
-  font-size: 30px;
-  background-color: #db0000;
-  margin: 15px;
-  padding: 10px;
+.section .heading {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15px;
+}
 
+.product-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
 }
 
 /* Product container */
 .product-container {
   display: flex;
   flex-wrap: nowrap;
-  flex-direction: row;
-  overflow-x: scroll;
-  width: 100%;
+  overflow-x: auto; /* Permite el desplazamiento horizontal */
+  padding: 10px; /* Añade un poco de relleno al contenedor */
 }
 
 /* Product card (assumed to be in Product component) */
 .product-card {
-  display: flex;
   background-color: #f7f4f4;
-  flex-direction: column;
   width: 200px;
   min-width: 200px;
   height: 500px;
   margin: 8px;
-  box-sizing: border-box;
+  box-sizing: border-box; /* Incluye padding y border en el ancho total */
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   border: 1px solid #ee0505;
@@ -65,8 +72,6 @@ html, body {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   color: #333;
   transition: all 0.3s;
-  margin-bottom: 40px;
-  position: relative;
 }
 
 .product-card:hover {
@@ -80,8 +85,7 @@ html, body {
   max-width: 100px;
   height: 100px;
   border-radius: 8px;
-  margin-bottom: 19px;
-  margin-top: 10px;
+  margin: 10px 0; /* Margen uniforme arriba y abajo */
 }
 
 .product-card h3 {

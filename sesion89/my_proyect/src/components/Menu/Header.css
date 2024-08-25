@@ -85,9 +85,24 @@ h3 {
 }
 .header nav {
   display: flex;
-  align-items: center;
+  align-items: center;  /* ggggggg */
+  text-decoration: none;
+  font-weight: bold;
 }
+
+
+@keyframes spin  {
+  /* 0% { transform: translateX(0); }
+  50% { transform: translateX(20px); }
+  100% { transform: translateX(0); } */
+
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 .header img {
+  /* animation: moveSideways 2s ease-in-out infinite; */
+  animation: spin 5s linear infinite;
   width: 100px;
 }
 .header nav a {
@@ -121,6 +136,7 @@ nav a:hover {
   background-color: #d81f26;
   height: 40px !important;
   width: 60px !important;
+  margin-top: 15px;
 }
 
 @media (max-width: 568px) {
@@ -171,12 +187,6 @@ ul {
 
 li {
   margin: 0 15px;
-}
-
-a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
 }
 
 a:hover {
@@ -233,8 +243,9 @@ a:hover {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  padding: 10px 20px;
-  margin: 8px;
+  padding: 5px 20px;
+  margin:5px ;
+  margin-top: 15px;
 }
 
 .header .btn-ini-registro {
@@ -244,7 +255,8 @@ a:hover {
   border-radius: 4px;
   cursor: pointer;
   padding:5px 20px;
-  margin: 8px;
+  margin:5px ;
+  margin-top: 15px;
 }
 
 .header .btn-ini-cerrarsesion{
@@ -254,10 +266,23 @@ a:hover {
   border-radius: 4px;
   cursor: pointer;
   padding:5px 20px;
-  margin: 8px;
+  margin:5px ;
+  margin-top: 15px;
+}
+
+
+.cart-icon-container {
+  font-size: 2.200rem; /* Ajusta el tamaño del texto para el ícono, similar a 'text-lg' */
+  padding: 10px; 
+  margin: 0 50px; 
+}
+
+.flex{
+  display: flex;
 }
 
 .class-menu-btn {
   display: flex;
   padding: 10px;
 }
+
