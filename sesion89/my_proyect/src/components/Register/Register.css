@@ -10,11 +10,11 @@
 /* Estilos de la tarjeta */
 .login-form {
   background-color: #333; /* Fondo negro */
-  padding: 40px;
+  padding: 60px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
   box-sizing: border-box;
 }
 
@@ -44,7 +44,7 @@
 .login-button {
   width: 100%;
   padding: 12px;
-  background-color: #e74c3c; /* Rojo */
+  background-color: #c52020; /* Rojo */
   color: #fff; /* Blanco */
   border: none;
   border-radius: 4px;
@@ -55,7 +55,7 @@
 
 /* Hover del botón */
 .login-button:hover {
-  background-color: #c0392b; /* Rojo más oscuro */
+  background-color: #ff1900; /* Rojo más oscuro */
 }
 
 /* Estilo para el mensaje de error */

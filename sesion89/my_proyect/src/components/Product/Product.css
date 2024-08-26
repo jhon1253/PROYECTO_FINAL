@@ -101,8 +101,8 @@ margin-top: 10px;
 }
 
 .product-card h3 {
-  color: #020202;
-  font-size: 10px;
+  color: #30ff06;
+  font-size: 15px;
   font-weight: bold;
   margin-bottom: 8px;
 }
@@ -121,7 +121,7 @@ margin-top: 10px;
 }
 
 .product-card button:hover {
-  background-color: #0056b3;
+  background-color: #9af705;
 }
 
 .product-data {
@@ -182,6 +182,12 @@ margin-top: 10px;
   width: 40px;
   height: 40px;
 }
+
+.b-comprar{
+  margin: 10px;
+}
+
+
 
 
 

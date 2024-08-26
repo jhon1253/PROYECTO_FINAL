@@ -1,17 +1,13 @@
-/* html, body{
-    background-image: url('mmmppp.png'); Imagen de fondo
-} */
 .cartContainer {
   background-color: #fff; /* Fondo blanco para el contenedor */
   color: #333; /* Texto en color gris oscuro */
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 800px;
+  max-width: 500px;
   margin: 20px auto;
 }
 
-/* Título del carrito */
 .titleTarget {
   text-align: center;
   margin-bottom: 20px;
@@ -23,53 +19,46 @@
   font-weight: bold;
 }
 
-/* Contenedor de los productos */
 .targetContent {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-/* Elemento de producto individual */
 .productItem {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid #ddd;
-  padding: 15px;
+  border: 1px solid #f30404;
+  padding: 8px; /* Reduce el padding para disminuir la altura de la tarjeta */
   border-radius: 8px;
   background-color: #fafafa;
   transition: background-color 0.3s ease;
+  margin: 10px;
 }
 
 .productItem:hover {
-  background-color: #f8d7da; /* Color rojo claro en hover */
+  background-color: #d34545; /* Color rojo claro en hover */
 }
 
-/* Imagen del producto */
 .productImage {
-  max-width: 200px;
+  max-width: 150px; /* Reduce el tamaño de la imagen */
   height: auto;
   border-radius: 4px;
-  margin-bottom: 10px;
+  margin-bottom: 8px; /* Reduce el margen inferior de la imagen */
 }
 
-/* Nombre del producto */
 .productName {
-  font-size: 1.5rem;
+  font-size: 1.2rem; /* Reduce el tamaño de la fuente */
   font-weight: bold;
-  color: #000; /* Nombre en negro */
-  margin: 10px 0;
+  color: #000;
+  margin: 8px 0; /* Reduce el margen superior e inferior */
 }
 
-/* Precio del producto */
 .productPrice {
-  color: #c00; /* Precio en rojo oscuro */
-  font-size: 1.25rem;
-  margin: 10px 0;
+  font-size: 1rem; /* Reduce el tamaño de la fuente */
+  margin: 8px 0; /* Reduce el margen superior e inferior */
 }
-
-/* Botón de eliminar */
 .button {
   background-color: #c00; /* Fondo rojo */
   color: #fff; /* Texto en blanco */
@@ -85,14 +74,12 @@
   background-color: #900; /* Rojo más oscuro en hover */
 }
 
-/* Mensaje cuando el carrito está vacío */
 .emptyMessage {
   text-align: center;
   color: #666; /* Texto gris claro */
   font-size: 1.2rem;
 }
 
-/* Contenedor del botón de limpiar carrito */
 .clearButtonContainer {
   text-align: center;
   margin-top: 20px;
@@ -101,6 +88,6 @@
 h3{
   font-size: 1.5rem;
   border-radius: 10px;
-  color: #333;
+  color: #333333;
   padding: 10px;
 }

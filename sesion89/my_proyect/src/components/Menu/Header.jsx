@@ -16,10 +16,6 @@ function Header() {
     setMostrarFormulario(!mostrarFormulario);
   };
 
-  // const toggleRegistro = () => {
-  //   setMostrarRegistro(!mostrarRegistro);
-  //   setMostrarFormulario(false);
-  // };
 
   const cerrarLogin = async () => {
     try {
@@ -62,19 +58,6 @@ function Header() {
           {(mostrarFormulario || mostrarRegistro) && (
             <div className="formulario">
               {mostrarFormulario ? (
-                // <form>
-                //   <div className="campo">
-                //     <label htmlFor="usuario">Email</label>
-                //     <input type="text" id="usuario" name="usuario" />
-                //   </div>
-
-                //   <div className="campo">
-                //     <label htmlFor="contrasena">Password</label>
-                //     <input type="password" id="contrasena" name="contrasena" />
-                //   </div>
-
-                //   <button type="submit">Login</button>
-                // </form>
                 <Login></Login>
               ) : (
                 <RegisterForm />

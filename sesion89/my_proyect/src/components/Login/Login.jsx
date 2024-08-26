@@ -66,7 +66,7 @@ const Login = () => {
           <div className="textbox">
             <input
               type="text"
-              placeholder="User"
+              placeholder="name@gmail.com"
               value={Email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -75,7 +75,7 @@ const Login = () => {
           <div className="textbox">
             <input
               type="password"
-              placeholder="password"
+              placeholder="password(8 dig-min)"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
