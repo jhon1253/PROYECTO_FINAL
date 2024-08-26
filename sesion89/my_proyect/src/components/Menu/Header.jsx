@@ -83,32 +83,28 @@ function Header() {
           )}
         </div>
         <div className="flex">
+          <button className="btn-ini-cerrarsesion" onClick={cerrarLogin}>
+            SIGNOUT
+          </button>
+          <button
+            className="btn-ini-sesion"
+            type="button"
+            onClick={toggleFormulario}
+          >
+            SIGNIN
+          </button>
+          <a href="/register">
+            <button className="btn-ini-registro" type="button">
+            SINGUP
+            </button>
+          </a>
+          <div className="cart-icon-container">
+            <CartIcon />
+          </div>
 
-            <button className="btn-ini-cerrarsesion" onClick={cerrarLogin}>
-              SIGNOUT
-            </button>
-            <button
-              className="btn-ini-sesion"
-              type="button"
-              onClick={toggleFormulario}
-            >
-              LOGIN
-            </button>
-            <a href="/register">
-              <button
-                className="btn-ini-registro"
-                type="button"
-              >
-                SINGUP
-              </button>
-            </a>
-            <div className="cart-icon-container">
-              <CartIcon />
-            </div>
-
-            <button className="" id="menu-btn-Hamburguesa">
-              &#9776;
-            </button>
+          <button className="" id="menu-btn-Hamburguesa">
+            &#9776;
+          </button>
         </div>
       </header>
     </div>

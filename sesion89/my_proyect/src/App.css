@@ -40,12 +40,6 @@ html, body {
   margin-bottom: 15px;
 }
 
-.product-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  justify-content: center;
-}
 
 /* Product container */
 .product-container {
