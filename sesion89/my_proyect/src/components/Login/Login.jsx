@@ -11,6 +11,8 @@ const Login = () => {
   const [Email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [users, setUsers] = useState(null);
+  const [registrar, setRegistrar] = useState(false);
+  const [visible, setVisible] = useState(true); // Estado para manejar la visibilidad del formulario
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -31,7 +33,7 @@ const Login = () => {
         Email,
         password
       );
-      const User = UsuarioCredenciales.user
+      const User = UsuarioCredenciales.user;
       await fetch("http://localhost:3000/usuarios", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -45,7 +47,6 @@ const Login = () => {
     }
   };
 
-  const [registrar, setRegistrar] = useState(false);
   const IngresarUser = async (e) => {
     e.preventDefault();
 
@@ -56,40 +57,52 @@ const Login = () => {
       console.log("Error al ingresar a la cuenta", error);
     }
   };
-  console.log(users);
 
   return (
-    <div className="login-container">
-      <div className="login-box">
-        <h2>Iniciar Sesion</h2>
-        <form onSubmit={(e) => (registrar ? RegisterUser(e) : IngresarUser(e))}>
-          <div className="textbox">
-            <input
-              type="text"
-              placeholder="name@gmail.com"
-              value={Email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
+    <>
+      {visible && (
+        <div className="login-container">
+          <div className="login-box">
+            <h2>{registrar ? "Crear Cuenta" : "Iniciar Sesión"}</h2>
+            <form
+              onSubmit={(e) => (registrar ? RegisterUser(e) : IngresarUser(e))}
+            >
+              <div className="textbox">
+                <input
+                  type="text"
+                  name="email"
+                  placeholder="name@gmail.com"
+                  value={Email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  
+                />
+              </div>
+              <div className="textbox">
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="password(8 dig-min)"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                  
+                />
+              </div>
+              <button type="submit" className="btn">
+                {registrar ? "Crear Cuenta" : "Iniciar Sesión"}
+              </button>
+              <div className="crearCuenta">
+                <h4>¿No tienes cuenta aún?</h4>
+              </div>
+              <button type="button" onClick={() => setRegistrar(!registrar)}>
+                {registrar ? " ¿Quieres Ingresar?" : "Crear cuenta"}
+              </button>
+            </form>
           </div>
-          <div className="textbox">
-            <input
-              type="password"
-              placeholder="password(8 dig-min)"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </div>
-          <button type="submit" className="btn">
-            Iniciar Sesion
-          </button>
-          <button onClick={() => setRegistrar(!registrar)}>
-            {registrar ? " ¿Quieres Ingresar?" : "¿Quieres Registrate?"}
-          </button>
-        </form>
-      </div>
-    </div>
+        </div>
+      )}
+    </>
   );
 };
 

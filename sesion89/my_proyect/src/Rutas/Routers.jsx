@@ -13,8 +13,8 @@ export default function Routers() {
         <Routes>
           <Route>
             <Route path="/" element={<HomePage />} />
-            <Route path="/Cart" element={<Cart />} />
             <Route path="/tienda" element={<App />} />
+            <Route path="/tienda/cart" element={<Cart />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<RegisterForm />} />
           </Route>

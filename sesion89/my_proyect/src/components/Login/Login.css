@@ -7,7 +7,7 @@
 
 .login-box {
   margin-top: -200px;
-  background-color: #1C1C1C;
+  background-color: #f8f0f0;
   padding: 40px;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4);
@@ -15,6 +15,8 @@
   max-width: 400px;
   width: 100%;
 }
+
+
 
 .login-box h2 {
   margin-bottom: 20px;
@@ -59,4 +61,21 @@
   color: #FF0000;
   margin-top: 10px;
   font-size: 14px;
+}
+
+
+
+.crearCuenta{
+  margin: 10px;
+  color: #030303;
+}
+
+
+/* para la x */
+.crearCuenta h4 {
+  text-align: center;
+}
+
+button {
+  cursor: pointer;
 }

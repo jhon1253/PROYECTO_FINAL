@@ -86,12 +86,14 @@ html, body {
 
 
 .product-card p {
+  margin: 10px;
   font-size: 14px;
   color: #030303;
   margin-bottom: 16px;
 }
 
 .product-card button {
+  margin-left: -5px;
   background-color: #007bff;
   width: 100%;
   border: none;

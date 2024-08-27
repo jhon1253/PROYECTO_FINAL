@@ -184,14 +184,14 @@ a:hover {
 
 .header .formulario {
   position: absolute;
-  top: 100px; /* Ajusta la posición vertical según sea necesario */
-  right: 220px; /* Ajusta la posición horizontal según sea necesario */
-  background-color: #fff;
+  top: 100px; 
+  right: 220px; 
+  background-color: #000000;
   border: 1px solid #ccc;
   padding: 20px;
-  z-index: 100; /* Asegúrate de que esté por encima de otros elementos */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra ligera */
-  border-radius: 4px; /* Bordes redondeados */
+  z-index: 100; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+  border-radius: 4px; 
 }
 
 .header .formulario form {
@@ -273,5 +273,10 @@ a:hover {
 .class-menu-btn {
   display: flex;
   padding: 10px;
+}
+
+.close-btn{
+  display: flex;
+  margin-left: 120px;
 }
 

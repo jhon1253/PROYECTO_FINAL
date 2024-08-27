@@ -7,6 +7,7 @@ import RegisterForm from "../Register/Register";
 import Login from "../Login/Login";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../../fireBase/credenciales";
+import ProfileImage from "../ProfileImage/ProfileImage";
 
 function Header() {
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
@@ -16,23 +17,26 @@ function Header() {
     setMostrarFormulario(!mostrarFormulario);
   };
 
-
   const cerrarLogin = async () => {
     try {
       await signOut(auth);
-      console.log("sesion cerrada");
+      setEmail(""); // Limpia el estado de email al cerrar sesión
+      console.log("Sesión cerrada con éxito");
     } catch (error) {
       console.log("No cerro la sesion");
     }
   };
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setEmail(user.email);
       } else {
+        setEmail("");
         console.log("Usuario no encontrado");
       }
     });
+    // Limpia la suscripción al desmontar el componente
+    return () => unsubscribe();
   }, []);
   return (
     <div className="contenido">
@@ -52,16 +56,14 @@ function Header() {
             <Link to="womensclothing" smooth={true} duration={200}>
               WOMEN'S CLOTHING
             </Link>
-            {Email}
+            <div className="verCorreo">
+              {Email && <ProfileImage email={Email} />}
+            </div>
           </nav>
 
           {(mostrarFormulario || mostrarRegistro) && (
-            <div className="formulario">
-              {mostrarFormulario ? (
-                <Login></Login>
-              ) : (
-                <RegisterForm />
-              )}
+            <div className="formulario ">
+              {mostrarFormulario ? <Login /> : <RegisterForm />}
             </div>
           )}
         </div>
@@ -78,7 +80,7 @@ function Header() {
           </button>
           <a href="/register">
             <button className="btn-ini-registro" type="button">
-            SINGUP
+              SINGUP
             </button>
           </a>
           <div className="cart-icon-container">
