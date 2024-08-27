@@ -1,8 +1,9 @@
 @import "bootstrap-icons/font/bootstrap-icons.css";
 
+
 /* General styles */
 html, body {
-  background-color: #000000;
+  background-color: #fce4e4;
   margin: 0;
   padding: 0;
   box-sizing: border-box; /* Incluye padding y border en el ancho total */
