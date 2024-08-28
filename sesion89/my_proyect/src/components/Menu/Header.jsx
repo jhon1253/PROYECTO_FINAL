@@ -56,9 +56,6 @@ function Header() {
             <Link to="womensclothing" smooth={true} duration={200}>
               WOMEN'S CLOTHING
             </Link>
-            <div className="verCorreo">
-              {Email && <ProfileImage email={Email} />}
-            </div>
           </nav>
 
           {(mostrarFormulario || mostrarRegistro) && (
@@ -86,10 +83,12 @@ function Header() {
           <div className="cart-icon-container">
             <CartIcon />
           </div>
-
           <button className="" id="menu-btn-Hamburguesa">
             &#9776;
           </button>
+        </div>
+        <div className="verCorreo">
+          {Email && <ProfileImage email={Email} />}
         </div>
       </header>
     </div>

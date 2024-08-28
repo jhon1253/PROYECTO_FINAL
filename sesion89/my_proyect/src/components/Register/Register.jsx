@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./Register.css";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../fireBase/credenciales";
 
 const RegisterForm = () => {
   const [name, setName] = useState("");
@@ -9,35 +11,39 @@ const RegisterForm = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState(null);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     if (password !== confirmPassword) {
       setError("Las contraseñas no coinciden");
       return;
     }
-
-    fetch("(link unavailable)", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name,
-        surname,
+    try {
+      const UsuarioCredenciales = await createUserWithEmailAndPassword(
+        auth,
         email,
-        password,
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.error) {
-          setError(data.error);
-        } else {
-          window.location.href = "/";
-        }
-      })
-      .catch((error) => console.error(error));
+        password
+      );
+      const User = UsuarioCredenciales.user;
+      await fetch("http://localhost:3000/usuarios", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          surname,
+          uid_usuario: User.uid,
+          correo_electronico: email,
+          password,
+        }),
+      });
+      alert("Usuario registrado satisfactoriamente");
+      setEmail(""); // Limpiar el campo de email
+      setPassword(""); // Limpiar el campo de contraseña
+    } catch (error) {
+      console.log("Error al crear cuenta", error);
+    }
   };
 
   return (
