@@ -12,7 +12,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [users, setUsers] = useState(null);
   const [registrar, setRegistrar] = useState(false);
-  const [visible, setVisible] = useState(true); // Estado para manejar la visibilidad del formulario
+  const [visible, setVisible] = useState(true); 
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
