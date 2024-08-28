@@ -4,6 +4,7 @@ import { useFetch } from "../Hooks/useGetProducts";
 import Header from "../components/Menu/Header";
 import CartIcon from "../components/CartIcons/CartIcon";
 import "../App.css"
+import HomePage from "./HomePage";
 
 export default function App() {
   const { data: electronics } = useFetch(
@@ -27,7 +28,9 @@ export default function App() {
   return (
     <>
       <Header />
-      
+
+      <HomePage/>
+
       <div className="search">
         <h1 className="title">SHOPPING</h1>
       </div>

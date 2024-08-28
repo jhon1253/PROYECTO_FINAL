@@ -86,9 +86,9 @@ function Header() {
           <button className="" id="menu-btn-Hamburguesa">
             &#9776;
           </button>
-        </div>
-        <div className="verCorreo">
-          {Email && <ProfileImage email={Email} />}
+          <div className="verCorreo">
+            {Email && <ProfileImage email={Email} />}
+          </div>
         </div>
       </header>
     </div>
