@@ -1,10 +1,5 @@
-import React from "react";
-import Slider from "react-slick";
-import Imagen from "../assets/mmmppp.png";
-import "../HomePage.css"; // Asegúrate de que la ruta sea correcta
-
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import React, { useState, useEffect } from "react";
+import "../HomePage.css";
 
 import img1 from "../assets/img1.png";
 import img2 from "../assets/img2.png";
@@ -12,72 +7,51 @@ import img3 from "../assets/img3.png";
 import img4 from "../assets/img4.png";
 import img5 from "../assets/img5.png";
 import img6 from "../assets/img6.png";
+import img7 from "../assets/img7.png";
+import img8 from "../assets/img8.png";
 
-const settings = {
-  centerMode: true,
-  centerPadding: "0",
-  dots: true,
-  infinite: true,
-  speed: 500,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  autoplay: true,
-  autoplaySpeed: 3000,
-  cssEase: "ease-in-out",
+const images = [img1, img2, img3, img4, img5, img6, img7, img8];
+
+const carousel = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 2500);
+    return () => clearInterval(interval);
+  }, []);
+
+  const prevSlide = () => {
+    setCurrentIndex(
+      (prevIndex) => (prevIndex - 1 + images.length) % images.length
+    );
+  };
+
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
+
+  return (
+    <div className="slider">
+      <button className="slider-button prev" onClick={prevSlide}>
+        ‹
+      </button>
+      <div
+        className="slides"
+        style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+      >
+        {images.map((img, index) => (
+          <div key={index} className="slide">
+            <img src={img} alt={`Slide ${index}`} />
+          </div>
+        ))}
+      </div>
+      <button className="slider-button next" onClick={nextSlide}>
+        ›
+      </button>
+    </div>
+  );
 };
 
-export default function HomePage() {
-  return (
-    <>
-      {/* <div className="header-princi">
-        <img className="imagen-goku" src={Imagen} alt="Logo" />
-        <nav className="nav-menu">
-          <ul className="nav-list">
-            <li className="nav-item">
-              <a href="/tienda" className="nav-link">
-                Shop
-              </a>
-            </li>
-            <li className="nav-item">
-              <a href="/tienda/cart" className="nav-link">
-                You Shopping Cart
-              </a>
-            </li>
-            <li className="nav-item">
-              <a href="/register" className="nav-link">
-                Services
-              </a>
-            </li>
-            <li className="nav-item">
-              <a href="/login" className="nav-link">
-                Contact
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </div> */}
-      <div className="container">
-        <Slider {...settings} className="carousel">
-          <div>
-            <img src={img1} alt="Promoción 1" />
-          </div>
-          <div>
-            <img src={img2} alt="Promoción 2" />
-          </div>
-          <div>
-            <img src={img3} alt="Promoción 3" />
-          </div>
-          <div>
-            <img src={img4} alt="Promoción 4" />
-          </div>
-          <div>
-            <img src={img5} alt="Promoción 5" />
-          </div>
-          <div>
-            <img src={img6} alt="Promoción 6" />
-          </div>
-        </Slider>
-      </div>
-    </>
-  );
-}
+export default carousel;

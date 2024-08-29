@@ -3,12 +3,7 @@ body {
   margin: 0;
   background-color: #000000;
 }
-.header {
-  display: flex;
-  background-color: #141414;
-  padding: 60px;
-  padding-left: 40px;
-}
+
 .contenido {
   position: sticky;
   top: 0;
@@ -68,10 +63,20 @@ h3 {
 .header {
   background-color: #141414;
   display: flex;
-  /* justify-content: space-between; */
-  padding: 10px 0;
+  justify-content: space-between;
+  padding: 20px;
   position: relative;
+  padding-left: 40px;
 }
+/* .header {
+  display: flex;
+  background-color: #141414;
+  padding: 60px;
+
+} */
+
+
+
 .header nav {
   display: flex;
   align-items: center;  /* ggggggg */
@@ -182,17 +187,7 @@ a:hover {
   text-decoration: underline;
 }
 
-.header .formulario {
-  position: absolute;
-  top: 100px; 
-  right: 220px; 
-  background-color: #000000;
-  border: 1px solid #ccc;
-  padding: 20px;
-  z-index: 100; 
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
-  border-radius: 4px; 
-}
+
 
 .header .formulario form {
   display: flex;

@@ -1,77 +1,66 @@
 import React, { useEffect, useState } from "react";
 import "./Login.css";
-import {
-  createUserWithEmailAndPassword,
-  onAuthStateChanged,
-  signInWithEmailAndPassword,
-} from "firebase/auth";
+import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../fireBase/credenciales";
+import { useNavigate } from "react-router-dom";
 
-const Login = () => {
-  const [Email, setEmail] = useState("");
+const Login = ({ setMostrarFormulario }) => {
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [users, setUsers] = useState(null);
-  const [registrar, setRegistrar] = useState(false);
-  const [visible, setVisible] = useState(true);
+  const [user, setUser] = useState(null);
+  const navigate = useNavigate();
+  const [isVisible, setIsVisible] = useState(true); // Estado para manejar la visibilidad del login
 
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setUsers(user);
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      if (currentUser) {
+        setUser(currentUser);
       } else {
         console.log("Usuario no encontrado");
       }
     });
+
+    // Cleanup subscription on component unmount
+    return () => unsubscribe();
   }, []);
 
-  const RegisterUser = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
 
     try {
-      const UsuarioCredenciales = await createUserWithEmailAndPassword(
-        auth,
-        Email,
-        password
-      );
-      const User = UsuarioCredenciales.user;
-      await fetch("http://localhost:3000/usuarios", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          uid_usuario: User.uid,
-          correo_electronico: Email,
-        }),
-      });
-    } catch (error) {
-      console.log("Error al crear cuenta", error);
-    }
-  };
-
-  const IngresarUser = async (e) => {
-    e.preventDefault();
-
-    try {
-      await signInWithEmailAndPassword(auth, Email, password);
+      await signInWithEmailAndPassword(auth, email, password);
       console.log("Ingresaste a la cuenta");
     } catch (error) {
       console.log("Error al ingresar a la cuenta", error);
     }
   };
 
+  const handleRegisterRedirect = () => {
+    navigate("/register");
+  };
+
+  const handleClose = () => {
+    setMostrarFormulario((e) => !e);
+    setIsVisible(false); // Oculta el componente de login
+  };
+
+  if (!isVisible) return null; // Si no es visible, no renderiza nada
+
   return (
-    <>
+    <div className="formularioee">
       <div className="login-container">
         <div className="login-box">
-          <h2>{registrar ? "Crear Cuenta" : "Iniciar Sesión"}</h2>
-          <form
-            onSubmit={(e) => (registrar ? RegisterUser(e) : IngresarUser(e))}
-          >
+          <button className="close-button" onClick={handleClose}>
+            &times;
+          </button>
+          <h2>Iniciar Sesión</h2>
+          <form onSubmit={handleLogin}>
             <div className="textbox">
               <input
                 type="text"
                 name="email"
                 placeholder="name@gmail.com"
-                value={Email}
+                value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
@@ -87,18 +76,18 @@ const Login = () => {
               />
             </div>
             <button type="submit" className="btn">
-              {registrar ? "Crear Cuenta" : "Iniciar Sesión"}
+              Iniciar Sesión
             </button>
-            <div className="crearCuenta">
-              <h4>¿No tienes cuenta aún?</h4>
+            <div className="create-account">
+              <h3>¿No tienes cuenta?</h3>
+              <button type="button" onClick={handleRegisterRedirect}>
+                Crear cuenta
+              </button>
             </div>
-            <button type="button" onClick={() => setRegistrar(!registrar)}>
-              {registrar ? " ¿Quieres Ingresar?" : "Crear cuenta"}
-            </button>
           </form>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

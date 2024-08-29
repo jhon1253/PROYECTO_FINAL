@@ -59,8 +59,12 @@ function Header() {
           </nav>
 
           {(mostrarFormulario || mostrarRegistro) && (
-            <div className="formulario ">
-              {mostrarFormulario ? <Login /> : <RegisterForm />}
+            <div>
+              {mostrarFormulario ? (
+                <Login setMostrarFormulario={setMostrarFormulario} />
+              ) : (
+                <RegisterForm />
+              )}
             </div>
           )}
         </div>
