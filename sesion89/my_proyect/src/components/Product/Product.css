@@ -101,7 +101,7 @@ margin-top: 10px;
 }
 
 .product-card h3 {
-  color: #30ff06;
+  color: #000000;
   font-size: 15px;
   font-weight: bold;
   margin-bottom: 8px;
@@ -109,7 +109,7 @@ margin-top: 10px;
 
 .product-card p {
   font-size: 14px;
-  color: #080808;
+  color: #444040;
   margin-bottom: 16px;
 }
 
@@ -121,7 +121,7 @@ margin-top: 10px;
 }
 
 .product-card button:hover {
-  background-color: #9af705;
+  background-color: #eccb0d;
 }
 
 .product-data {
@@ -149,10 +149,10 @@ margin-top: 10px;
 }
 
 .product-numbers .price-before {
-  font-size: 24px;
-  font-weight: lighter;
-  font-size: small;
-  color: #666;
+  font-size: 20px;
+  /* font-weight: lighter; */
+  /* font-size: small; */
+  color: #f87001;
   text-decoration: line-through;
 }
 .rating{
@@ -160,7 +160,7 @@ margin-top: 10px;
   align-items: center;
   justify-content: center;
   margin-bottom: 8px;
-  background-color: blueviolet;
+  background-color: rgb(235, 220, 9);
   color: #ffffff;
   border-radius: 50%;
   width: 50%;
@@ -187,6 +187,10 @@ margin-top: 10px;
   margin: 10px;
 }
 
+
+.div_btn-comprar{
+  color: #000000;
+}
 
 
 
