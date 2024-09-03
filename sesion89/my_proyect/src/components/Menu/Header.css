@@ -18,22 +18,15 @@ body {
   display: flex;
   justify-content: right;
 }
+
 .header nav {
   display: flex;
-  align-items: center;
+  align-items: center;  /* ggggggg */
+  text-decoration: none;
+  font-weight: bold;
 }
 .header .logo {
   width: 100px;
-}
-.header nav a {
-  color: #fff;
-  text-decoration: none;
-  margin-right: 20px;
-  cursor: pointer;
-}
-
-.header .img {
-  height: 55px;
 }
 
 .barra a {
@@ -46,14 +39,7 @@ h3 {
   margin: 20px;
   padding-left: 20px;
 }
-.imagenes {
-  position: relative;
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  width: 100%;
-  scrollbar-color: #000 #000;
-}
+
 .imagen {
   height: 120px;
   width: 200px;
@@ -68,22 +54,6 @@ h3 {
   position: relative;
   padding-left: 40px;
 }
-/* .header {
-  display: flex;
-  background-color: #141414;
-  padding: 60px;
-
-} */
-
-
-
-.header nav {
-  display: flex;
-  align-items: center;  /* ggggggg */
-  text-decoration: none;
-  font-weight: bold;
-}
-
 
 @keyframes spin  {
   /* 0% { transform: translateX(0); }
@@ -95,7 +65,6 @@ h3 {
 }
 
 .header img {
-  /* animation: moveSideways 2s ease-in-out infinite; */
   animation: spin 5s linear infinite;
   width: 100px;
 }
@@ -103,17 +72,16 @@ h3 {
   color: #fff;
   text-decoration: none;
   margin-right: 20px;
-  transition: color 0.4s ease; /* Transición suave para el cambio de color */
+  transition: color 0.4s ease;
 }
 nav a:hover {
   color: rgb(
     250,
     0,
     42
-  ); /* Color que deseas cuando el cursor está sobre el enlace */
+  );
 }
 
-/* botones */
 .header button {
   background-color: #d81f26;
   color: #fff;
@@ -122,7 +90,6 @@ nav a:hover {
   height: 40px;
   cursor: pointer;
   margin-top: 15px;
-  /* padding: 10px; */
 }
 
 #menu-btn-Hamburguesa {
@@ -133,35 +100,8 @@ nav a:hover {
   margin-top: 15px;
 }
 
-@media (max-width: 568px) {
-  .barra.open {
-    right: 0;
-    top: 75px;
-  }
-  .barra {
-    height: 100%;
-    width: 250px;
-    background: #0c0b0b;
-    position: fixed;
-    top: 70px;
-    right: -250px;
-    z-index: 0;
-    transition: right 0.3s ease;
-  }
-  .galeria {
-    display: block;
-  }
-}
-@media only screen and (max-width: 600px) {
-  .contenido {
-    padding: 0 10px; /* Reducir el espacio alrededor del contenido para pantallas pequeñas */
-  }
-  .header .container {
-    flex-direction: column; /* Apilar elementos del menú en pantallas pequeñas */
-    align-items: center; /* Centrar elementos del menú en pantallas pequeñas */
-  }
-  /* Puedes añadir más estilos específicos para pantallas pequeñas aquí */
-}
+
+
 
 .from_inscribirse {
   position: absolute;
@@ -191,11 +131,11 @@ a:hover {
 
 .header .formulario form {
   display: flex;
-  flex-direction: column; /* Apilar los campos uno encima del otro */
+  flex-direction: column; 
 }
 
 .header .formulario .campo {
-  margin-bottom: 10px; /* Espacio entre los campos */
+  margin-bottom: 10px; 
 }
 
 .header .formulario label {
@@ -224,7 +164,6 @@ a:hover {
 .header .btn-ini-sesion {
   background-color: #d81f26;
   color: #fff;
-  border: none;
   border-radius: 4px;
   cursor: pointer;
   padding: 5px 20px;
@@ -235,7 +174,6 @@ a:hover {
 .header .btn-ini-registro {
   background-color: #d81f26;
   color: #fff;
-  border: none;
   border-radius: 4px;
   cursor: pointer;
   padding:5px 20px;
@@ -246,7 +184,6 @@ a:hover {
 .header .btn-ini-cerrarsesion{
   background-color: #d81f26;
   color: #fff;
-  border: none;
   border-radius: 4px;
   cursor: pointer;
   padding:5px 20px;
@@ -256,7 +193,7 @@ a:hover {
 
 
 .cart-icon-container {
-  font-size: 2.200rem; /* Ajusta el tamaño del texto para el ícono, similar a 'text-lg' */
+  font-size: 2.200rem; 
   padding: 10px; 
   margin: 0 50px; 
 }
@@ -275,3 +212,51 @@ a:hover {
   margin-left: 120px;
 }
 
+
+@media (max-width: 768px) {
+  .header .container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .header nav {
+    margin-top: 10px;
+    flex-direction: column;
+  }
+  
+  .header .flex {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #menu-btn-Hamburguesa {
+    display: block;
+  }
+}
+
+/* responsi */
+
+.navbar {
+  display: flex;
+  gap: 1rem;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: black;
+}
+
+/* Mostrar el botón hamburguesa y el menú desplegable en pantallas pequeñas */
+@media (max-width: 768px) {
+  .navbar {
+    display: none; /* Oculta la barra de navegación en pantallas pequeñas */
+  }
+
+  #menu-btn-Hamburguesa {
+    display: block; /* Muestra el botón hamburguesa en pantallas pequeñas */
+  }
+
+  .menu-desplegable.active {
+    display: block; /* Muestra el menú desplegable cuando está activo */
+  }
+}
