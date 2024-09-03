@@ -21,7 +21,7 @@ body {
 
 .header nav {
   display: flex;
-  align-items: center;  /* ggggggg */
+  align-items: center; /* ggggggg */
   text-decoration: none;
   font-weight: bold;
 }
@@ -55,13 +55,17 @@ h3 {
   padding-left: 40px;
 }
 
-@keyframes spin  {
+@keyframes spin {
   /* 0% { transform: translateX(0); }
   50% { transform: translateX(20px); }
   100% { transform: translateX(0); } */
 
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .header img {
@@ -75,11 +79,7 @@ h3 {
   transition: color 0.4s ease;
 }
 nav a:hover {
-  color: rgb(
-    250,
-    0,
-    42
-  );
+  color: rgb(250, 0, 42);
 }
 
 .header button {
@@ -99,9 +99,6 @@ nav a:hover {
   width: 60px !important;
   margin-top: 15px;
 }
-
-
-
 
 .from_inscribirse {
   position: absolute;
@@ -127,15 +124,13 @@ a:hover {
   text-decoration: underline;
 }
 
-
-
 .header .formulario form {
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
 }
 
 .header .formulario .campo {
-  margin-bottom: 10px; 
+  margin-bottom: 10px;
 }
 
 .header .formulario label {
@@ -143,7 +138,7 @@ a:hover {
 }
 
 .header .formulario input {
-  width: 100%; 
+  width: 100%;
   padding: 8px;
   margin-top: 5px;
   border: 1px solid #ccc;
@@ -167,7 +162,7 @@ a:hover {
   border-radius: 4px;
   cursor: pointer;
   padding: 5px 20px;
-  margin:5px ;
+  margin: 5px;
   margin-top: 15px;
 }
 
@@ -176,29 +171,32 @@ a:hover {
   color: #fff;
   border-radius: 4px;
   cursor: pointer;
-  padding:5px 20px;
-  margin:5px ;
+  padding: 5px 20px;
+  margin: 5px;
   margin-top: 15px;
 }
 
-.header .btn-ini-cerrarsesion{
+.header .btn-ini-cerrarsesion {
   background-color: #d81f26;
   color: #fff;
   border-radius: 4px;
   cursor: pointer;
-  padding:5px 20px;
-  margin:5px ;
+  padding: 5px 20px;
+  margin: 5px;
   margin-top: 15px;
 }
 
-
 .cart-icon-container {
-  font-size: 2.200rem; 
-  padding: 10px; 
-  margin: 0 50px; 
+  font-size: 2.2rem;
+  padding: 10px;
+  margin: 0 50px;
 }
 
-.flex{
+.flex {
+  display: flex;
+}
+
+.buttons_header {
   display: flex;
 }
 
@@ -207,28 +205,36 @@ a:hover {
   padding: 10px;
 }
 
-.close-btn{
+.close-btn {
   display: flex;
   margin-left: 120px;
 }
 
+#menu-btn-Hamburguesa {
+  display: none;
+}
 
 @media (max-width: 768px) {
-  .header .container {
+  .container {
     flex-direction: column;
     align-items: center;
   }
-  
+
   .header nav {
+    display: none;
     margin-top: 10px;
     flex-direction: column;
   }
-  
+
   .header .flex {
     flex-direction: column;
     align-items: center;
   }
-  
+
+  .buttons_header {
+    display: none;
+  }
+
   #menu-btn-Hamburguesa {
     display: block;
   }

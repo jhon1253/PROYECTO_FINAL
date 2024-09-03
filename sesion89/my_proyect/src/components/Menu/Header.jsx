@@ -69,27 +69,27 @@ function Header() {
           )}
         </div>
         <div className="flex">
-          <button className="btn-ini-cerrarsesion" onClick={cerrarLogin}>
-            SIGNOUT
-          </button>
-          <button
-            className="btn-ini-sesion"
-            type="button"
-            onClick={toggleFormulario}
-          >
-            SIGNIN
-          </button>
-          <a href="/register">
-            <button className="btn-ini-registro" type="button">
-              SINGUP
+          <div className="buttons_header">
+            <button className="btn-ini-cerrarsesion" onClick={cerrarLogin}>
+              SIGNOUT
             </button>
-          </a>
-          <div className="cart-icon-container">
-            <CartIcon />
+            <button
+              className="btn-ini-sesion"
+              type="button"
+              onClick={toggleFormulario}
+            >
+              SIGNIN
+            </button>
+            <a href="/register">
+              <button className="btn-ini-registro" type="button">
+                SINGUP
+              </button>
+            </a>
+            <div className="cart-icon-container">
+              <CartIcon />
+            </div>
           </div>
-          <button className="" id="menu-btn-Hamburguesa">
-            &#9776;
-          </button>
+          <button id="menu-btn-Hamburguesa">&#9776;</button>
           <div className="verCorreo">
             {Email && <ProfileImage email={Email} />}
           </div>
