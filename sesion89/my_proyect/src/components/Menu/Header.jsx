@@ -80,11 +80,11 @@ function Header() {
             >
               SIGNIN
             </button>
-            <a href="/register">
+            {/* <a href="/register">
               <button className="btn-ini-registro" type="button">
                 SINGUP
               </button>
-            </a>
+            </a> */}
             <div className="cart-icon-container">
               <CartIcon />
             </div>

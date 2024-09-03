@@ -53,7 +53,7 @@ const Login = ({ setMostrarFormulario }) => {
           <button className="close-button" onClick={handleClose}>
             &times;
           </button>
-          <h2>Iniciar Sesión</h2>
+          <h2 className="iniciar_sesion">Iniciar Sesión</h2>
           <form onSubmit={handleLogin}>
             <div className="textbox">
               <input
