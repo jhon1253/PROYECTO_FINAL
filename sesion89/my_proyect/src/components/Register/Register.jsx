@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Register.css";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../fireBase/credenciales";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const RegisterForm = () => {
   const [name, setName] = useState("");
@@ -12,6 +13,7 @@ const RegisterForm = () => {
   const [error, setError] = useState(null);
   const [showPassword, setShowPassword] = useState(false); // Nuevo estado para mostrar/ocultar la contraseña
   const [showPasswordConfirm, setShowPasswordConfirm] = useState(false); // Nuevo estado para mostrar/ocultar la contraseña
+  const Navigate = useNavigate()
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -49,10 +51,13 @@ const RegisterForm = () => {
       alert("Usuario registrado satisfactoriamente");
       setEmail(""); // Limpiar el campo de email
       setPassword(""); // Limpiar el campo de contraseña
+      Navigate("/"); 
     } catch (error) {
       console.log("Error al crear cuenta", error);
     }
   };
+
+  
 
   return (
     <div className="container_register">

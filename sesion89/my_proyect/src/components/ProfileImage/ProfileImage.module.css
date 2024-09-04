@@ -4,6 +4,7 @@
 }
 
 .profileImage {
+  margin-top: 14px;
   width: 40px; /* Tamaño del círculo */
   height: 40px;
   border-radius: 50%;
