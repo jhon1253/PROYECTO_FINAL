@@ -50,14 +50,36 @@
 
 .textbox {
   margin-bottom: 15px; 
+  position: relative; /* Necesario para posicionar el icono absolutamente dentro de este contenedor */
+  width: 100%; /* Asegura que el contenedor use todo el ancho disponible */
 }
 
-.textbox input {
-  width: 100%; 
-  padding: 10px; 
-  border: 1px solid #ddd; 
-  border-radius: 4px; 
-  font-size: 16px; 
+
+
+/* Estilo para el campo de entrada */
+.textbox input{
+  width: 100%; /* Asegura que el campo use todo el ancho del contenedor */
+  padding: 12px;
+  padding-right: 40px; /* Espacio para el icono a la derecha */
+  margin-bottom: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 20px;
+  box-sizing: border-box;
+  background-color: #fff;
+  color: #333;
+}
+/* Estilo para el icono de alternancia de contraseña */
+.password_toggle_icon {
+  margin-top: -8px;
+  position: absolute; /* Posiciona el icono absolutamente dentro del contenedor */
+  right: 10px; /* Espacio desde el borde derecho del campo de entrada */
+  top: 50%;
+  transform: translateY(-50%); /* Centra el icono verticalmente */
+  font-size: 20px; /* Tamaño del icono */
+  cursor: pointer; /* Cursor de puntero para indicar interactividad */
+  color: #333; /* Color del icono */
+  pointer-events: all; /* Permite que el clic en el icono funcione */
 }
 
 .textbox input:focus {
@@ -72,7 +94,7 @@
   background: #007bff; 
   color: #fff; 
   border: none;
-  border-radius: 4px;
+  border-radius: 10px;
   font-size: 16px;
   cursor: pointer;
   transition: background 0.3s; 
@@ -89,7 +111,7 @@
   margin-bottom: 10px; 
 }
 
-.iniciar_sesion{
+h2{
   align-items: center;
   display: flex;
   justify-content: center;
@@ -99,7 +121,7 @@
   background: #28a745; 
   color: #fff; 
   border: none; 
-  border-radius: 4px; 
+  border-radius: 10px; 
   padding: 10px 20px; 
   font-size: 16px; 
   cursor: pointer; 

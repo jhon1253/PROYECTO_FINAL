@@ -10,11 +10,11 @@ body {
   left: 0;
   z-index: 5;
 }
-.header .container {
+.container {
   display: flex;
   width: 75%;
 }
-.header .barra {
+.barra {
   display: flex;
   justify-content: right;
 }
@@ -25,7 +25,7 @@ body {
   text-decoration: none;
   font-weight: bold;
 }
-.header .logo {
+.logo {
   width: 100px;
 }
 
@@ -124,20 +124,20 @@ a:hover {
   text-decoration: underline;
 }
 
-.header .formulario form {
+.formulario form {
   display: flex;
   flex-direction: column;
 }
 
-.header .formulario .campo {
+.campo {
   margin-bottom: 10px;
 }
 
-.header .formulario label {
+.formulario label {
   font-weight: bold;
 }
 
-.header .formulario input {
+.formulario input {
   width: 100%;
   padding: 8px;
   margin-top: 5px;
@@ -146,7 +146,7 @@ a:hover {
   font-size: 14px;
 }
 
-.header .formulario button {
+.formulario button {
   background-color: #d81f26;
   color: #fff;
   border: none;
@@ -156,7 +156,7 @@ a:hover {
   margin-top: 10px;
 }
 
-.header .btn-ini-sesion {
+.btn-ini-sesion {
   background-color: #d81f26;
   color: #fff;
   border-radius: 4px;
@@ -166,7 +166,7 @@ a:hover {
   margin-top: 15px;
 }
 
-.header .btn-ini-registro {
+.btn-ini-registro {
   background-color: #d81f26;
   color: #fff;
   border-radius: 4px;
@@ -176,7 +176,7 @@ a:hover {
   margin-top: 15px;
 }
 
-.header .btn-ini-cerrarsesion {
+.btn-ini-cerrarsesion {
   background-color: #d81f26;
   color: #fff;
   border-radius: 4px;

@@ -9,7 +9,10 @@ const Login = ({ setMostrarFormulario }) => {
   const [password, setPassword] = useState("");
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false); // Nuevo estado para mostrar/ocultar la contraseña
+
   const [isVisible, setIsVisible] = useState(true); // Estado para manejar la visibilidad del login
+
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -53,13 +56,13 @@ const Login = ({ setMostrarFormulario }) => {
           <button className="close-button" onClick={handleClose}>
             &times;
           </button>
-          <h2 className="iniciar_sesion">Iniciar Sesión</h2>
+          <h2>Iniciar Sesión</h2>
           <form onSubmit={handleLogin}>
             <div className="textbox">
               <input
                 type="text"
                 name="email"
-                placeholder="name@gmail.com"
+                placeholder="nombre@gmail.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -67,19 +70,26 @@ const Login = ({ setMostrarFormulario }) => {
             </div>
             <div className="textbox">
               <input
-                type="password"
+                type={showPassword ? "text" : "password"}
                 name="password"
-                placeholder="password(8 dig-min)"
+                placeholder="contraseña"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
+              <span
+              className="password_toggle_icon"
+              onClick={() => setShowPassword(!showPassword)} // Cambia el estado al hacer clic
+              >
+              {showPassword ? <i class="bi bi-eye-slash"></i> : <i class="bi bi-eye"></i>} {/* Alterna entre dos iconos de texto */}
+              </span>
             </div>
             <button type="submit" className="btn">
               Iniciar Sesión
             </button>
             <div className="create-account">
-              <h3>¿No tienes cuenta?</h3>
+              <h3>¿Aun no tienes cuenta?</h3>
+              <h5>Crea tu cuenta yaa !!</h5>
               <button type="button" onClick={handleRegisterRedirect}>
                 Crear cuenta
               </button>

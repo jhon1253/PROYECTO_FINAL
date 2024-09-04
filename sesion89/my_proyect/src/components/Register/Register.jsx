@@ -10,6 +10,7 @@ const RegisterForm = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState(null);
+  const [showPassword, setShowPassword] = useState(false); // Nuevo estado para mostrar/ocultar la contraseña
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -47,71 +48,64 @@ const RegisterForm = () => {
   };
 
   return (
-    <div className="formulario">
-      <div className="container-register">
-        <form onSubmit={handleSubmit} className="login-form">
-          <label htmlFor="name" className="login-label">
-            Name:
+      <div className="container_register">
+        <form onSubmit={handleSubmit} className="from_login">
+          <label htmlFor="name" className="title_label">
+            Nombre y Apellido:
           </label>
           <input
+            placeholder="Nombre y Apellido"
+            required
             type="text"
             id="name"
             value={name}
             onChange={(event) => setName(event.target.value)}
-            className="login-input"
+            className="input_login"
           />
-          <br />
-          <label htmlFor="surname" className="login-label">
-            LastName:
+          <label htmlFor="email" className="title_label">
+            Correo:
           </label>
           <input
-            type="text"
-            id="surname"
-            value={surname}
-            onChange={(event) => setSurname(event.target.value)}
-            className="login-input"
-          />
-          <br />
-          <label htmlFor="email" className="login-label">
-            Email:
-          </label>
-          <input
+            placeholder="nombre@gmail.com"
+            required
             type="email"
             id="email"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
-            className="login-input"
+            className="input_login"
           />
           <br />
-          <label htmlFor="password" className="login-label">
-            Password:
+          <label htmlFor="password" className="title_label">
+            Contraseña:
           </label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-            className="login-input"
-          />
-          <br />
-          <label htmlFor="confirm-password" className="login-label">
-            Confirm Password:
-          </label>
-          <input
-            type="password"
-            id="confirm-password"
-            value={confirmPassword}
-            onChange={(event) => setConfirmPassword(event.target.value)}
-            className="login-input"
-          />
-          <br />
+          <div className="password-container">
+            
+            <input
+              placeholder="********"
+              required
+              type={showPassword ? "text" : "password"} // Alterna el tipo del input
+              id="password"
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+              className="input_login"
+              
+            />
+            <span
+              className="password-toggle-icon"
+              onClick={() => setShowPassword(!showPassword)} // Cambia el estado al hacer clic
+            >
+              {showPassword ? <i class="bi bi-eye-slash"></i> : <i class="bi bi-eye"></i>} {/* Alterna entre dos iconos de texto */}
+            </span>
+          </div>
+
+
           {error && <p className="login-error">{error}</p>}
-          <button type="submit" className="login-button">
-            Sing Up
+          <button type="submit" className="login_button">
+            Crear cuenta
           </button>
         </form>
       </div>
-    </div>
+
   );
 };
 

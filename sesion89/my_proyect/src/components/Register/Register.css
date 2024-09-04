@@ -1,51 +1,48 @@
-/* Estilos generales para el contenedor del formulario */
-.container-register {
+.container_register {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #000000;
+  background-color: #f0f0f0; 
+  padding: 0 20px;
 }
 
-/* Estilos de la tarjeta */
-.login-form {
-  background-color: #333; /* Fondo negro */
-  padding: 60px;
+.from_login {
+  background-color: #ffffff;
+  padding: 30px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 500px;
+  max-width: 400px;
   box-sizing: border-box;
+  margin: 0 auto; 
 }
 
-/* Estilos de las etiquetas */
-.login-label {
+.title_label {
   display: block;
   margin-bottom: 8px;
-  color: #fff; /* Color de texto blanco */
+  color: #333; 
   font-size: 14px;
   font-weight: bold;
 }
 
-/* Estilos de los campos de entrada */
-.login-input {
+.input_login {
   width: 100%;
   padding: 12px;
-  margin-bottom: 20px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  margin-bottom: 16px; 
+  border: 1px solid #ccc; 
+  border-radius: 10px;
   font-size: 16px;
   box-sizing: border-box;
-  background-color: #fff; /* Fondo blanco para entradas */
-  color: #333; /* Color de texto negro */
+  background-color: #fff; 
+  color: #333;
 }
 
-/* Estilo del botón */
-.login-button {
+.login_button {
   width: 100%;
   padding: 12px;
-  background-color: #c52020; /* Rojo */
-  color: #fff; /* Blanco */
+  background-color: #007bff; 
+  color: #fff; 
   border: none;
   border-radius: 4px;
   font-size: 16px;
@@ -53,19 +50,49 @@
   transition: background-color 0.3s ease;
 }
 
-/* Hover del botón */
-.login-button:hover {
-  background-color: #ff1900; /* Rojo más oscuro */
+.login_button:hover {
+  background-color: #0056b3;
 }
 
-/* Estilo para el mensaje de error */
 .login-error {
-  color: #e74c3c; /* Rojo */
+  color: #e74c3c;
   background-color: #ffe5e5;
   padding: 10px;
   border-radius: 4px;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   text-align: center;
   font-size: 14px;
   font-weight: bold;
+}
+
+
+
+.password-container {
+  position: relative; /* Necesario para posicionar el icono absolutamente dentro de este contenedor */
+  width: 100%; /* Asegura que el contenedor use todo el ancho disponible */
+}
+
+.input_login {
+  width: 100%; /* Asegura que el campo use todo el ancho del contenedor */
+  padding: 12px;
+  padding-right: 40px; /* Espacio para el icono a la derecha */
+  margin-bottom: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 20px;
+  box-sizing: border-box;
+  background-color: #fff;
+  color: #333;
+}
+
+.password-toggle-icon {
+  margin-top: -8px;
+  position: absolute; 
+  right: 10px; 
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px; 
+  cursor: pointer; 
+  color: #333; 
+  pointer-events: all; /* Permite que el clic en el icono funcione */
 }
