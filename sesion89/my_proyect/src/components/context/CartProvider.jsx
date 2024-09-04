@@ -6,6 +6,8 @@ export const CartProvider = ({ children }) => {
     JSON.parse(localStorage.getItem("cart")) ?? []
   );
 
+
+  //se agg lo de guardar de datos 
   const addToCart = (product) => {
     let newCart = [];
     const existingProdut = cart.find((item) => item.id === product.id);
