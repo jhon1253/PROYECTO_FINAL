@@ -106,9 +106,9 @@ const RegisterForm = () => {
             onClick={() => setShowPassword(!showPassword)} // Cambia el estado al hacer clic
           >
             {showPassword ? (
-              <i class="bi bi-eye-slash"></i>
-            ) : (
               <i class="bi bi-eye"></i>
+            ) : (
+              <i class="bi bi-eye-slash"></i>
             )}{" "}
             {/* Alterna entre dos iconos de texto */}
           </span>
@@ -132,9 +132,9 @@ const RegisterForm = () => {
             onClick={() => setShowPasswordConfirm(!showPasswordConfirm)} // Cambia el estado al hacer clic
           >
             {showPasswordConfirm ? (
-              <i class="bi bi-eye-slash"></i>
-            ) : (
               <i class="bi bi-eye"></i>
+            ) : (
+              <i class="bi bi-eye-slash"></i>
             )}{" "}
             {/* Alterna entre dos iconos de texto */}
           </span>

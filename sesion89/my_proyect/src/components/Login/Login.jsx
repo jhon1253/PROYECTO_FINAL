@@ -8,11 +8,10 @@ const Login = ({ setMostrarFormulario }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [user, setUser] = useState(null);
-  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false); // Nuevo estado para mostrar/ocultar la contraseña
-
   const [isVisible, setIsVisible] = useState(true); // Estado para manejar la visibilidad del login
-
+  const [mostrarError, setMostrarError] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -34,12 +33,18 @@ const Login = ({ setMostrarFormulario }) => {
       await signInWithEmailAndPassword(auth, email, password);
       console.log("Ingresaste a la cuenta");
     } catch (error) {
-      console.log("Error al ingresar a la cuenta", error);
+      setMostrarError("Direccion o contraseña incorrecta", error);
+      setTimeout(() => {
+        setMostrarError("");
+      }, 5000);
     }
   };
 
   const handleRegisterRedirect = () => {
     navigate("/register");
+  };
+  const handleTiendaRedirect = () => {
+    navigate("/");
   };
 
   const handleClose = () => {
@@ -78,15 +83,22 @@ const Login = ({ setMostrarFormulario }) => {
                 required
               />
               <span
-              className="password_toggle_icon"
-              onClick={() => setShowPassword(!showPassword)} // Cambia el estado al hacer clic
+                className="password_toggle_icon"
+                onClick={() => setShowPassword(!showPassword)} // Cambia el estado al hacer clic
               >
-              {showPassword ? <i class="bi bi-eye-slash"></i> : <i class="bi bi-eye"></i>} {/* Alterna entre dos iconos de texto */}
+                {showPassword ? (
+                  <i class="bi bi-eye"></i>
+                ) : (
+                  <i class="bi bi-eye-slash"></i>
+                )}{" "}
+                {/* Alterna entre dos iconos de texto */}
               </span>
             </div>
-            <button type="submit" className="btn">
+            <button type="submit" onClick={handleTiendaRedirect} className="btn">
               Iniciar Sesión
             </button>
+            {mostrarError && <p className="login-error">{mostrarError}</p>}
+
             <div className="create-account">
               <h3>¿Aun no tienes cuenta?</h3>
               <h5>Crea tu cuenta yaa !!</h5>
