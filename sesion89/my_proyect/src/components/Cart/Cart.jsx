@@ -1,10 +1,17 @@
 import React, { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 import styles from "./Cart.module.css"; // Importa el CSS module
+import {useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const { cart, removeFromCart, clearCart } = useContext(CartContext);
+  const navigate = useNavigate()
 console.log(cart);
+
+  const handleClearCart = () => {
+    clearCart(); // Vacía el carrito
+    navigate("/"); // Redirige a la página principal
+  };
 
   return (
     <div className={styles.cartContainer}>
@@ -34,7 +41,7 @@ console.log(cart);
                 onClick={() => removeFromCart(product)}
                 aria-label={`Remove ${product.name} from cart`}
               >
-                Delete From Cart
+                Eliminar Producto
               </button>
             </div>
           ))
@@ -44,10 +51,10 @@ console.log(cart);
       <div className={styles.clearButtonContainer}>
         <button
           className={styles.button}
-          onClick={clearCart}
+          onClick={handleClearCart}
           aria-label="Clear all items from cart"
         >
-          Clear Cart
+          Vaciar Carrito
         </button>
       </div>
     </div>
