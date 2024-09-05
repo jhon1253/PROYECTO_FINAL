@@ -32,7 +32,7 @@ export default function App() {
       <HomePage />
 
       <div className="search">
-        <h1 className="title">Kame Store</h1>
+        <h1 className="title"><img src="/src/assets/cristal.png" alt="Logo" className="logo_esfera" />Kame Store</h1>
       </div>
       <div className="section" name="electronics">
         <h1 className="heading">Tecnología</h1>

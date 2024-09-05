@@ -48,7 +48,7 @@ const RegisterForm = () => {
           password,
         }),
       });
-      alert("Usuario registrado satisfactoriamente");
+      alert("Cuenta creada con exito");
       setEmail(""); // Limpiar el campo de email
       setPassword(""); // Limpiar el campo de contraseña
       Navigate("/"); 

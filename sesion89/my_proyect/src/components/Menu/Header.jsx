@@ -9,10 +9,12 @@ import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../../fireBase/credenciales";
 import ProfileImage from "../ProfileImage/ProfileImage";
 
+
 function Header() {
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
-  const [mostrarRegistro, setMostrarRegistro] = useState(false);
+  const [mostrarRegistro] = useState(false);
   const [Email, setEmail] = useState("");
+  const [menuAbierto, setMenuAbierto] = useState(false); // Estado para el menú hamburguesa
   const toggleFormulario = () => {
     setMostrarFormulario(!mostrarFormulario);
   };
@@ -38,12 +40,17 @@ function Header() {
     // Limpia la suscripción al desmontar el componente
     return () => unsubscribe();
   }, []);
+
+  const toggleMenu = () => {
+    setMenuAbierto(!menuAbierto);
+  };
+
   return (
     <div className="contenido">
       <header className="header">
         <div className="container">
           <img className="hover:animate-bounce" src={Img} alt="Logo" />
-          <nav>
+          <nav className={menuAbierto ? "navbar active" : "navbar"}>
             <Link to="electronics" smooth={true} duration={200}>
               TECNOLOGIA
             </Link>
@@ -68,31 +75,55 @@ function Header() {
             </div>
           )}
         </div>
+
         <div className="flex">
-          <div className="buttons_header">
-            <button className="btn-ini-cerrarsesion" onClick={cerrarLogin}>
-              Cerrar Sesion
-            </button>
-            <button
-              className="btn-ini-sesion"
-              type="button"
-              onClick={toggleFormulario}
-            >
-              Iniciar Sesion
-            </button>
-            {/* <a href="/register">
-              <button className="btn-ini-registro" type="button">
-                SINGUP
+          {menuAbierto ? (
+            <div className="buttons_header_responsive">
+              <div className="verCorreo">
+                {Email && <ProfileImage email={Email} />}
+              </div>
+              <button className="btn-ini-cerrarsesion" onClick={cerrarLogin}>
+                Cerrar Sesion
               </button>
-            </a> */}
-            <div className="cart-icon-container">
-              <CartIcon />
+              <button
+                className="btn-ini-sesion"
+                type="button"
+                onClick={toggleFormulario}
+              >
+                Iniciar Sesion
+              </button>
+              <div className="cart-icon-container">
+                <CartIcon />
+              </div>
             </div>
-          <div className="verCorreo">
-            {Email && <ProfileImage email={Email} />}
-          </div>
-          </div>
-          <button id="menu-btn-Hamburguesa">&#9776;</button>
+          ) : (
+            <div className="buttons_header">
+              <div className="verCorreo">
+                {Email && <ProfileImage email={Email} />}
+              </div>
+              <button className="btn-ini-cerrarsesion" onClick={cerrarLogin}>
+                Cerrar Sesion
+              </button>
+              <button
+                className="btn-ini-sesion"
+                type="button"
+                onClick={toggleFormulario}
+              >
+                Iniciar Sesion
+              </button>
+              {/* <a href="/register">
+                <button className="btn-ini-registro" type="button">
+                  SINGUP
+                </button>
+              </a> */}
+              <div className="cart-icon-container">
+                <CartIcon />
+              </div>
+            </div>
+          )}
+          <button id="menu-btn-Hamburguesa" onClick={toggleMenu}>
+            &#9776;
+          </button>
         </div>
       </header>
     </div>

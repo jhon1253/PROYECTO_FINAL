@@ -18,10 +18,22 @@ html, body {
   margin-bottom: 20px;
 }
 
-.search .title {
-  font-size: 2.5rem;
+.title {
+  font-family: 'Bangers', cursive;
+  display: flex;
+  justify-content: center;
+  font-size: 3em;
   font-weight: bold;
-  color: #333;
+  color: #FF6F00;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Agrega una sombra para mayor efecto */
+}
+
+  
+
+.logo_esfera{
+  margin: 0px 20px;
+  width: 70px;
 }
 
 

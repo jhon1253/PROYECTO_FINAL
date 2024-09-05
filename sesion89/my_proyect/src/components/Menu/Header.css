@@ -82,9 +82,8 @@ nav a:hover {
   color: rgb(250, 0, 42);
 }
 
-
 #menu-btn-Hamburguesa {
-  margin-right: 30px;
+  /* margin-right: 30px; */
   background-color: #d81f26;
   height: 40px !important;
   width: 60px !important;
@@ -174,8 +173,6 @@ a:hover {
   margin-top: 15px;
 }
 
-
-
 .cart-icon-container {
   font-size: 2.2rem;
   padding: 10px;
@@ -188,6 +185,10 @@ a:hover {
 
 .buttons_header {
   display: flex;
+}
+
+.buttons_header_responsive {
+  display: none;
 }
 
 .class-menu-btn {
@@ -204,55 +205,66 @@ a:hover {
   display: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 890px) {
   .container {
     flex-direction: column;
     align-items: center;
   }
-  
+
   .header nav {
     display: none;
     margin-top: 10px;
     flex-direction: column;
   }
-  
+
   .header .flex {
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items: center;
+    width: 40%;
   }
 
   .buttons_header {
     display: none;
   }
 
+  .buttons_header_responsive {
+    display: flex;
+    flex-direction: column;
+  }
+
   #menu-btn-Hamburguesa {
     display: block;
   }
-}
 
-/* responsi */
+  /* responsi */
 
-.navbar {
-  display: flex;
-  gap: 1rem;
-}
-
-.navbar a {
-  text-decoration: none;
-  color: black;
-}
-
-/* Mostrar el botón hamburguesa y el menú desplegable en pantallas pequeñas */
-@media (max-width: 768px) {
   .navbar {
-    display: none; /* Oculta la barra de navegación en pantallas pequeñas */
+    display: flex;
+    gap: 1rem;
+  }
+
+  .navbar a {
+    text-decoration: none;
+    color: black;
+  }
+
+  .navbar.active {
+    margin-top: 20px;
+    display: flex; /* Muestra el menú desplegable cuando está activo */
+    width: 50%;
+  }
+
+  .navbar {
+    background-color: #141414;
+    position: absolute;
+    top: 60px; /* Ajusta según el alto del header */
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    z-index: 1;
   }
 
   #menu-btn-Hamburguesa {
     display: block; /* Muestra el botón hamburguesa en pantallas pequeñas */
-  }
-
-  .menu-desplegable.active {
-    display: block; /* Muestra el menú desplegable cuando está activo */
   }
 }
