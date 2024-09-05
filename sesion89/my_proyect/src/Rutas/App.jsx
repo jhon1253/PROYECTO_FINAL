@@ -29,13 +29,13 @@ export default function App() {
     <>
       <Header />
 
-      <HomePage/>
+      <HomePage />
 
       <div className="search">
-        <h1 className="title">SHOPPING</h1>
+        <h1 className="title">Kame Store</h1>
       </div>
       <div className="section" name="electronics">
-        <h1 className="heading">Electronics</h1>
+        <h1 className="heading">Tecnología</h1>
         <div className="product-container">
           {electronics &&
             electronics.map((product, index) => (
@@ -44,7 +44,7 @@ export default function App() {
         </div>
       </div>
       <div className="section" name="jewelery">
-        <h1 className="heading">Jewelery</h1>
+        <h1 className="heading">Joyería</h1>
         <div className="product-container">
           {jewelery.map((product, index) => (
             <Product key={index} {...product} />
@@ -52,7 +52,7 @@ export default function App() {
         </div>
       </div>
       <div className="section" name="mensclothing">
-        <h1 className="heading">Men's Clothing</h1>
+        <h1 className="heading">Ropa Masculina</h1>
         <div className="product-container">
           {mensclothing.map((product, index) => (
             <Product key={index} {...product} />
@@ -60,7 +60,7 @@ export default function App() {
         </div>
       </div>
       <div className="section" name="womensclothing">
-        <h1 className="heading">Women's Clothing</h1>
+        <h1 className="heading">Ropa Femenina</h1>
         <div className="product-container">
           {womensclothing.map((product, index) => (
             <Product key={index} {...product} />

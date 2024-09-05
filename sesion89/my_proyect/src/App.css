@@ -51,23 +51,7 @@ html, body {
 }
 
 
-.product-card {
-  background-color: #f7f4f4;
-  width: 200px;
-  min-width: 200px;
-  height: 500px;
-  margin: 8px;
-  box-sizing: border-box; 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid #ee0505;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-  color: #333;
-  transition: all 0.3s;
-}
+
 
 .product-card:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);

@@ -45,16 +45,16 @@ function Header() {
           <img className="hover:animate-bounce" src={Img} alt="Logo" />
           <nav>
             <Link to="electronics" smooth={true} duration={200}>
-              ELECTRONICS
+              TECNOLOGIA
             </Link>
             <Link to="jewelery" smooth={true} duration={200}>
-              JEWELERY
+              JOYERIA
             </Link>
             <Link to="mensclothing" smooth={true} duration={200}>
-              MEN'S CLOTHING
+              ROPA MASCULINA
             </Link>
             <Link to="womensclothing" smooth={true} duration={200}>
-              WOMEN'S CLOTHING
+              ROPA FEMENINA
             </Link>
           </nav>
 
@@ -71,14 +71,14 @@ function Header() {
         <div className="flex">
           <div className="buttons_header">
             <button className="btn-ini-cerrarsesion" onClick={cerrarLogin}>
-              SIGNOUT
+              Cerrar Sesion
             </button>
             <button
               className="btn-ini-sesion"
               type="button"
               onClick={toggleFormulario}
             >
-              SIGNIN
+              Iniciar Sesion
             </button>
             {/* <a href="/register">
               <button className="btn-ini-registro" type="button">
@@ -88,11 +88,11 @@ function Header() {
             <div className="cart-icon-container">
               <CartIcon />
             </div>
-          </div>
-          <button id="menu-btn-Hamburguesa">&#9776;</button>
           <div className="verCorreo">
             {Email && <ProfileImage email={Email} />}
           </div>
+          </div>
+          <button id="menu-btn-Hamburguesa">&#9776;</button>
         </div>
       </header>
     </div>
