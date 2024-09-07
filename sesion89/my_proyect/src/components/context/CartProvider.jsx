@@ -6,8 +6,7 @@ export const CartProvider = ({ children }) => {
     JSON.parse(localStorage.getItem("cart")) ?? []
   );
 
-
-  //se agg lo de guardar de datos 
+  //se agg lo de guardar de datos
   const addToCart = (product) => {
     let newCart = [];
     const existingProdut = cart.find((item) => item.id === product.id);
@@ -32,11 +31,16 @@ export const CartProvider = ({ children }) => {
         )
         .filter((item) => item.quantity > 0); // Filtra los productos con cantidad 0
 
+      localStorage.setItem("cart", JSON.stringify(updatedCart));
+      console.log(updatedCart);
+
       return updatedCart;
     });
   };
 
   const clearCart = () => {
+    localStorage.setItem("cart", JSON.stringify([]));
+
     setCart([]);
   };
 

@@ -9,7 +9,6 @@ import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../../fireBase/credenciales";
 import ProfileImage from "../ProfileImage/ProfileImage";
 
-
 function Header() {
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
   const [mostrarRegistro] = useState(false);
