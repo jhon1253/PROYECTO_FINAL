@@ -82,13 +82,6 @@ nav a:hover {
   color: rgb(250, 0, 42);
 }
 
-#menu-btn-Hamburguesa {
-  /* margin-right: 30px; */
-  background-color: #d81f26;
-  height: 40px !important;
-  width: 60px !important;
-  margin-top: 15px;
-}
 
 .from_inscribirse {
   position: absolute;
@@ -201,14 +194,26 @@ a:hover {
   margin-left: 120px;
 }
 
+
 #menu-btn-Hamburguesa {
   display: none;
+  /* margin-right: 30px; */
+  background-color: #d81f26;
+  height: 40px !important;
+  width: 60px !important;
+  margin-top: 15px;
 }
 
 @media (max-width: 890px) {
   .container {
     flex-direction: column;
     align-items: center;
+  }
+  
+  .verCorreo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .header nav {
@@ -252,6 +257,8 @@ a:hover {
     margin-top: 20px;
     display: flex; /* Muestra el menú desplegable cuando está activo */
     width: 50%;
+    display: flex;
+    align-items: flex-start;
   }
 
   .navbar {
