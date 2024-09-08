@@ -4,6 +4,8 @@ import { CartProvider } from "../components/context/CartProvider";
 import Cart from "../components/Cart/Cart";
 import Login from "../components/Login/Login";
 import RegisterForm from "../components/Register/Register";
+import Purchase from "../components/Purchase/Purchase"
+
 // import HomePage from "../Rutas/HomePage"; 
 
 export default function Routers() {
@@ -17,6 +19,7 @@ export default function Routers() {
             <Route path="/cart" element={<Cart />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<RegisterForm />} />
+            <Route path="/processing-payment" element={<Purchase />}/>
           </Route>
         </Routes>
       </BrowserRouter>

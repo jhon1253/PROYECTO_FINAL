@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Product from "../components/Product";
 import { useFetch } from "../Hooks/useGetProducts";
 import Header from "../components/Menu/Header";
-import CartIcon from "../components/CartIcons/CartIcon";
+// import CartIcon from "../components/CartIcons/CartIcon";
 import "../App.css"
 import HomePage from "./HomePage";
 

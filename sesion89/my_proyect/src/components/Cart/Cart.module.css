@@ -30,7 +30,7 @@
   flex-direction: column;
   align-items: center;
   border: 1px solid #f30404;
-  padding: 8px; /* Reduce el padding para disminuir la altura de la tarjeta */
+  padding: 8px; 
   border-radius: 8px;
   background-color: #fafafa;
   transition: background-color 0.3s ease;
@@ -69,6 +69,25 @@
   font-size: 1rem;
   transition: background-color 0.3s ease;
 }
+.comprar_ahora{
+  background-color: #c00; /* Fondo rojo */
+  color: #fff; /* Texto en blanco */
+  border: none;
+  padding: 10px 13px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+.comprar_ahora:hover{
+  background-color: rgb(25, 238, 5);
+  transition: background-color 0.5s ease;
+}
+.buy_now{
+  display: flex;
+  justify-content: center;
+  margin: 15px;
+}
+
 
 .button:hover {
   background-color: #900; /* Rojo más oscuro en hover */

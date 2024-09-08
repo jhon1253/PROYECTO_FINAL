@@ -13,6 +13,15 @@ console.log(cart);
     navigate("/"); // Redirige a la página principal
   };
 
+    const handlePurchase = () => {
+      clearCart();
+      navigate("/processing-payment");
+
+      setTimeout(() => {
+        navigate("/");
+      }, 5000); // Ajusta el tiempo según lo necesites
+    };
+
   return (
     <div className={styles.cartContainer}>
       <div className={styles.titleTarget}>
@@ -56,8 +65,18 @@ console.log(cart);
         >
           Vaciar Carrito
         </button>
+       </div>
+
+       <div className={styles.buy_now}>
+        <button
+        className={styles.comprar_ahora}
+        onClick={handlePurchase}>
+          Comprar Ahora
+        </button>
+       </div>
+
       </div>
-    </div>
+
   );
 };
 
