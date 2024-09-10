@@ -9,15 +9,12 @@ export default function App() {
   const { data: electronics } = useFetch(
     "https://fakestoreapi.com/products/category/electronics"
   );
-
   const { data: jewelery } = useFetch(
     "https://fakestoreapi.com/products/category/jewelery"
   );
-
   const { data: mensclothing } = useFetch(
     "https://fakestoreapi.com/products/category/men's%20clothing"
   );
-
   const { data: womensclothing } = useFetch(
     "https://fakestoreapi.com/products/category/women's%20clothing"
   );

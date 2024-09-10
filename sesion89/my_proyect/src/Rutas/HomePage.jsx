@@ -14,7 +14,7 @@ const images = [img1, img2, img3, img4, img5, img6, img7, img8];
 
 const carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-
+//ghhgchh
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
