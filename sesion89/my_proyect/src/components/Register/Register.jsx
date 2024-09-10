@@ -68,7 +68,7 @@ const RegisterForm = () => {
           placeholder="Nombre y Apellido"
           required
           type="text"
-          id="name"
+          id={name}
           value={name}
           onChange={(event) => setName(event.target.value)}
           className="input_login"
