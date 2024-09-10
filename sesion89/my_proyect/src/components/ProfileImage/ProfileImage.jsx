@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./ProfileImage.module.css";
 
 const ProfileImage = ({ email }) => {
-  // Extraer las iniciales del correo electrónico
+  // Muestra las iniciales del correo electrónico
   const initials = email ? email.split("@")[0].charAt(0).toUpperCase() : "?";
 
   return (

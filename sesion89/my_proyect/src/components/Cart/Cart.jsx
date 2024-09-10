@@ -1,29 +1,46 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { CartContext } from "../context/CartContext";
-import styles from "./Cart.module.css"; 
-import {useNavigate } from "react-router-dom";
+import styles from "./Cart.module.css";
+import { useNavigate } from "react-router-dom";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../../fireBase/credenciales";
+import Login from "../Login/Login";
 
 const Cart = () => {
   const { cart, removeFromCart, clearCart } = useContext(CartContext);
-  const navigate = useNavigate()
-console.log(cart);
+  const navigate = useNavigate();
+
+  const [user, setUser] = useState(null);
+  const [loginActivo, setLoginActivo] = useState(false);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+
+    return () => unsubscribe();
+  }, []);
 
   const handleClearCart = () => {
-    clearCart(); 
-    navigate("/");
+    clearCart();
   };
 
-    const handlePurchase = () => {
+  const handlePurchase = () => {
+    if (user) {
       clearCart();
       navigate("/processing-payment");
 
       setTimeout(() => {
         navigate("/confirmation");
-      }, 5000); 
-    };
+      }, 5000);
+    } else {
+      setLoginActivo(true);
+    }
+  };
 
   return (
     <div className={styles.cartContainer}>
+      {loginActivo && <Login setMostrarFormulario={setLoginActivo} />}
       <div className={styles.titleTarget}>
         <h2 className={styles.listTitle}>Tu carrito de compras</h2>
       </div>
@@ -31,7 +48,7 @@ console.log(cart);
       <div className={styles.targetContent}>
         {cart.length === 0 ? (
           <p className={styles.emptyMessage}>
-            Tu carrito de compras esta vacio.
+            Tu carrito de compras está vacío.
           </p>
         ) : (
           cart.map((product) => (
@@ -43,8 +60,6 @@ console.log(cart);
                 alt={product.name}
                 className={styles.productImage}
               />
-
-              {/* <p>{product.description}</p> */}
               <p className={styles.productPrice}>${product.price.toFixed(2)}</p>
               <p>Cantidad: {product.quantity}</p>
               <button
@@ -69,7 +84,6 @@ console.log(cart);
         </button>
       </div>
 
-      {/* Condicion para ver el botón de compra solamente si hay */}
       {cart.length > 0 && (
         <div className={styles.buy_now}>
           <button className={styles.comprar_ahora} onClick={handlePurchase}>

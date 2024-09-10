@@ -7,24 +7,22 @@ import { useNavigate } from "react-router-dom";
 const Login = ({ setMostrarFormulario }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [user, setUser] = useState(null);
-  const [showPassword, setShowPassword] = useState(false); // Nuevo estado para mostrar/ocultar la contraseña
-  const [isVisible, setIsVisible] = useState(true); // Estado para manejar la visibilidad del login
+  const [showPassword, setShowPassword] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   const [mostrarError, setMostrarError] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
-        setUser(currentUser);
-      } else {
-        console.log("Usuario no encontrado");
+        // Si el usuario está autenticado, ocultar el formulario y redirigir a la página principal
+        setIsVisible(false);
+        navigate("/");
       }
     });
 
-    // Cleanup subscription on component unmount
     return () => unsubscribe();
-  }, []);
+  }, [navigate]);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -33,9 +31,9 @@ const Login = ({ setMostrarFormulario }) => {
       await signInWithEmailAndPassword(auth, email, password);
       console.log("Ingresaste a la cuenta");
     } catch (error) {
-      setMostrarError("Direccion o contraseña incorrecta", error);
+      setMostrarError("Dirección o contraseña incorrecta.");
       setTimeout(() => {
-        setMostrarError("");
+        setMostrarError(null);
       }, 5000);
     }
   };
@@ -43,16 +41,13 @@ const Login = ({ setMostrarFormulario }) => {
   const handleRegisterRedirect = () => {
     navigate("/register");
   };
-  const handleTiendaRedirect = () => {
-    navigate("/");
-  };
 
   const handleClose = () => {
-    setMostrarFormulario((e) => !e);
-    setIsVisible(false); // Oculta el componente de login 
+    setMostrarFormulario(false);
+    setIsVisible(false);
   };
 
-  if (!isVisible) return null; // Si no es visible, no renderiza nada
+  if (!isVisible) return null;
 
   return (
     <div className="formularioee">
@@ -65,8 +60,8 @@ const Login = ({ setMostrarFormulario }) => {
           <form onSubmit={handleLogin}>
             <div className="textbox">
               <input
-                type="text"
-                name="email"
+                type="email"
+                name="name"
                 placeholder="nombre@gmail.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -76,7 +71,6 @@ const Login = ({ setMostrarFormulario }) => {
             <div className="textbox">
               <input
                 type={showPassword ? "text" : "password"}
-                name="password"
                 placeholder="contraseña"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -84,23 +78,21 @@ const Login = ({ setMostrarFormulario }) => {
               />
               <span
                 className="password_toggle_icon"
-                onClick={() => setShowPassword(!showPassword)} // Cambia el estado al hacer clic
+                onClick={() => setShowPassword(!showPassword)}
               >
                 {showPassword ? (
-                  <i class="bi bi-eye"></i>
+                  <i className="bi bi-eye"></i>
                 ) : (
-                  <i class="bi bi-eye-slash"></i>
-                )}{" "}
-                {/* Alterna entre dos iconos de texto */}
+                  <i className="bi bi-eye-slash"></i>
+                )}
               </span>
             </div>
-            <button type="submit" onClick={handleTiendaRedirect} className="btn">
+            <button type="submit" className="btn">
               Iniciar Sesión
             </button>
             {mostrarError && <p className="login-error">{mostrarError}</p>}
-
             <div className="create-account">
-              <h3>¿Aun no tienes cuenta?</h3>
+              <h3>¿Aún no tienes cuenta?</h3>
               <h5>Crea tu cuenta yaa !!</h5>
               <button type="button" onClick={handleRegisterRedirect}>
                 Crear cuenta

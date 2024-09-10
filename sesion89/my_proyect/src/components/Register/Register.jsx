@@ -11,11 +11,11 @@ const RegisterForm = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState(null);
-  const [showPassword, setShowPassword] = useState(false); 
-  const [showPasswordConfirm, setShowPasswordConfirm] = useState(false); 
+  const [showPassword, setShowPassword] = useState(false);
+  const [showPasswordConfirm, setShowPasswordConfirm] = useState(false);
   const [mostrarError, setMostrarError] = useState(null);
 
-  const Navigate = useNavigate()
+  const Navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -23,13 +23,12 @@ const RegisterForm = () => {
     if (password !== confirmPassword) {
       setError("Las contraseñas no coinciden");
       return;
-    }
-    else if (password < 8) {
+    } else if (password < 8) {
       setError("La contraseña debe tener almenos 8 caracteres");
     } else {
       setError("");
     }
- 
+
     try {
       const UsuarioCredenciales = await createUserWithEmailAndPassword(
         auth,
@@ -53,13 +52,11 @@ const RegisterForm = () => {
       setMostrarError("Cuenta creada con exito");
       setEmail(""); // Limpiar el campo de email
       setPassword(""); // Limpiar el campo de contraseña
-      Navigate("/"); 
+      Navigate("/");
     } catch (error) {
       console.log("Error al crear cuenta", error);
     }
   };
-
-  
 
   return (
     <div className="container_register">
@@ -97,7 +94,7 @@ const RegisterForm = () => {
           <input
             placeholder="********"
             required
-            type={showPassword ? "text" : "password"} 
+            type={showPassword ? "text" : "password"}
             id="password"
             value={password}
             onChange={(event) => setPassword(event.target.value)}
@@ -105,14 +102,13 @@ const RegisterForm = () => {
           />
           <span
             className="password-toggle-icon"
-            onClick={() => setShowPassword(!showPassword)} 
+            onClick={() => setShowPassword(!showPassword)}
           >
             {showPassword ? (
-              <i class="bi bi-eye"></i>
+              <i className="bi bi-eye"></i>
             ) : (
-              <i class="bi bi-eye-slash"></i>
+              <i className="bi bi-eye-slash"></i>
             )}{" "}
-            
           </span>
         </div>
 
@@ -134,9 +130,9 @@ const RegisterForm = () => {
             onClick={() => setShowPasswordConfirm(!showPasswordConfirm)} // Cambia el estado al hacer clic
           >
             {showPasswordConfirm ? (
-              <i class="bi bi-eye"></i>
+              <i className="bi bi-eye"></i>
             ) : (
-              <i class="bi bi-eye-slash"></i>
+              <i className="bi bi-eye-slash"></i>
             )}{" "}
           </span>
         </div>
