@@ -49,7 +49,7 @@ const Login = ({ setMostrarFormulario }) => {
 
   const handleClose = () => {
     setMostrarFormulario((e) => !e);
-    setIsVisible(false); // Oculta el componente de login
+    setIsVisible(false); // Oculta el componente de login 
   };
 
   if (!isVisible) return null; // Si no es visible, no renderiza nada

@@ -1,0 +1,68 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  background-color: #f8f9fa; 
+  height: 100vh;
+}
+
+.icon {
+  font-size: 60px;
+  color: rgb(25, 238, 5); 
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+p {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.details {
+  margin: 20px 0;
+}
+
+.details h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.details ul {
+  list-style: none;
+  padding: 0;
+}
+
+.details li {
+  font-size: 18px;
+  margin: 5px 0;
+}
+
+.thankYouImage {
+  width: 200px;
+  height: auto;
+  margin: 20px 0;
+}
+
+.button {
+  padding: 10px 20px;
+  font-size: 18px;
+  color: #fff;
+  background-color: #c00;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: rgb(25, 238, 5);
+}

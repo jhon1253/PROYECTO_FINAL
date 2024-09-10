@@ -3,21 +3,34 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
   text-align: center;
+  padding: 20px;
+  background-color: #f8f9fa; 
+  height: 100vh;
 }
 
-.image {
-  width: 10%; 
-  height: 20%;
+.icon {
+  font-size: 60px; 
+  color: #28a745; 
   animation: rotate 2s linear infinite; 
-  border-radius: 50%;
-  /* border: 3px solid #ccc;  */
-  object-fit: cover;
 }
-.carrito_compra{
-  width: 20%;
-  height: 30%;
+
+.carrito_compra {
+  width: 200px; 
+  height: auto;
+  margin: 20px 0; 
+}
+
+h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+p {
+  font-size: 18px;
+  color: #666; 
+  margin-bottom: 20px;
 }
 
 @keyframes rotate {
@@ -27,15 +40,4 @@
   to {
     transform: rotate(360deg);
   }
-}
-
-h1 {
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-p {
-  color: aliceblue;
-  font-size: 16px;
-  margin: 10px 0;
 }

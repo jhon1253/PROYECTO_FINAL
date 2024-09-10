@@ -11,8 +11,10 @@ const RegisterForm = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState(null);
-  const [showPassword, setShowPassword] = useState(false); // Nuevo estado para mostrar/ocultar la contraseña
-  const [showPasswordConfirm, setShowPasswordConfirm] = useState(false); // Nuevo estado para mostrar/ocultar la contraseña
+  const [showPassword, setShowPassword] = useState(false); 
+  const [showPasswordConfirm, setShowPasswordConfirm] = useState(false); 
+  const [mostrarError, setMostrarError] = useState(null);
+
   const Navigate = useNavigate()
 
   const handleSubmit = async (event) => {
@@ -48,7 +50,7 @@ const RegisterForm = () => {
           password,
         }),
       });
-      alert("Cuenta creada con exito");
+      setMostrarError("Cuenta creada con exito");
       setEmail(""); // Limpiar el campo de email
       setPassword(""); // Limpiar el campo de contraseña
       Navigate("/"); 
@@ -95,7 +97,7 @@ const RegisterForm = () => {
           <input
             placeholder="********"
             required
-            type={showPassword ? "text" : "password"} // Alterna el tipo del input
+            type={showPassword ? "text" : "password"} 
             id="password"
             value={password}
             onChange={(event) => setPassword(event.target.value)}
@@ -103,14 +105,14 @@ const RegisterForm = () => {
           />
           <span
             className="password-toggle-icon"
-            onClick={() => setShowPassword(!showPassword)} // Cambia el estado al hacer clic
+            onClick={() => setShowPassword(!showPassword)} 
           >
             {showPassword ? (
               <i class="bi bi-eye"></i>
             ) : (
               <i class="bi bi-eye-slash"></i>
             )}{" "}
-            {/* Alterna entre dos iconos de texto */}
+            
           </span>
         </div>
 
@@ -136,9 +138,10 @@ const RegisterForm = () => {
             ) : (
               <i class="bi bi-eye-slash"></i>
             )}{" "}
-            {/* Alterna entre dos iconos de texto */}
           </span>
         </div>
+
+        {mostrarError}
 
         {error && <p className="login-error">{error}</p>}
         <button type="submit" className="login_button">

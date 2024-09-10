@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { CartContext } from "../context/CartContext";
-import styles from "./Cart.module.css"; // Importa el CSS module
+import styles from "./Cart.module.css"; 
 import {useNavigate } from "react-router-dom";
 
 const Cart = () => {
@@ -9,8 +9,8 @@ const Cart = () => {
 console.log(cart);
 
   const handleClearCart = () => {
-    clearCart(); // Vacía el carrito
-    navigate("/"); // Redirige a la página principal
+    clearCart(); 
+    navigate("/");
   };
 
     const handlePurchase = () => {
@@ -18,19 +18,21 @@ console.log(cart);
       navigate("/processing-payment");
 
       setTimeout(() => {
-        navigate("/");
-      }, 5000); // Ajusta el tiempo según lo necesites
+        navigate("/confirmation");
+      }, 5000); 
     };
 
   return (
     <div className={styles.cartContainer}>
       <div className={styles.titleTarget}>
-        <h2 className={styles.listTitle}>You Shopping Cart</h2>
+        <h2 className={styles.listTitle}>Tu carrito de compras</h2>
       </div>
 
       <div className={styles.targetContent}>
         {cart.length === 0 ? (
-          <p className={styles.emptyMessage}>Your cart Shopping is empty</p>
+          <p className={styles.emptyMessage}>
+            Tu carrito de compras esta vacio.
+          </p>
         ) : (
           cart.map((product) => (
             <div key={product.id} className={styles.productItem}>
@@ -65,18 +67,17 @@ console.log(cart);
         >
           Vaciar Carrito
         </button>
-       </div>
-
-       <div className={styles.buy_now}>
-        <button
-        className={styles.comprar_ahora}
-        onClick={handlePurchase}>
-          Comprar Ahora
-        </button>
-       </div>
-
       </div>
 
+      {/* Condicion para ver el botón de compra solamente si hay */}
+      {cart.length > 0 && (
+        <div className={styles.buy_now}>
+          <button className={styles.comprar_ahora} onClick={handlePurchase}>
+            Comprar Ahora
+          </button>
+        </div>
+      )}
+    </div>
   );
 };
 
