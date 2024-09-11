@@ -68,14 +68,14 @@
 
 
 .password-container {
-  position: relative; /* Necesario para posicionar el icono absolutamente dentro de este contenedor */
-  width: 100%; /* Asegura que el contenedor use todo el ancho disponible */
+  position: relative; 
+  width: 100%; 
 }
 
 .input_login {
-  width: 100%; /* Asegura que el campo use todo el ancho del contenedor */
+  width: 100%; 
   padding: 12px;
-  padding-right: 40px; /* Espacio para el icono a la derecha */
+  padding-right: 40px; 
   margin-bottom: 16px;
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -95,5 +95,5 @@
   font-size: 20px; 
   cursor: pointer; 
   color: #333; 
-  pointer-events: all; /* Permite que el clic en el icono funcione */
+  pointer-events: all; 
 }

@@ -5,36 +5,36 @@
 
 .profileImage {
   margin-top: 14px;
-  width: 40px; /* Tamaño del círculo */
+  width: 40px; 
   height: 40px;
   border-radius: 50%;
-  background-color: #d81f26; /* Color de fondo del círculo */
+  background-color: #d81f26; 
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 18px;
   font-weight: bold;
-  cursor: pointer; /* Cambia el cursor para indicar que es interactivo */
-  position: relative; /* Necesario para que el tooltip se posicione relativo a este contenedor */
+  cursor: pointer; 
+  position: relative; 
 }
 
 .tooltip {
   visibility: hidden;
-  width: max-content; /* Ajusta el ancho automáticamente */
+  width: max-content; 
   background-color: #555;
   color: #fff;
   text-align: center;
   border-radius: 6px;
   padding: 5px 10px;
   position: absolute;
-  top: 100%; /* Posiciona el tooltip debajo del círculo */
+  top: 100%; 
   left: 50%;
-  transform: translateX(-50%); /* Centra el tooltip horizontalmente */
+  transform: translateX(-50%); 
   opacity: 0;
   transition: opacity 0.3s;
-  white-space: nowrap; /* Evita que el texto se envuelva en varias líneas */
-  z-index: 1; /* Asegura que el tooltip esté sobre otros elementos */
+  white-space: nowrap; 
+  z-index: 1; 
 }
 
 .profileImage:hover .tooltip {
