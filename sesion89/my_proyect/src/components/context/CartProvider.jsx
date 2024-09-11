@@ -1,29 +1,74 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { CartContext } from "./CartContext";
 
 export const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState(
-    JSON.parse(localStorage.getItem("cart")) ?? []
-  );
+  const [cart, setCart] = useState(() => {
+    const savedCart = JSON.parse(localStorage.getItem("cart"));
+    return savedCart || { id_producto: [] };
+  });
 
-  //se agg lo de guardar de datos
-  const addToCart = (product) => {
-    let newCart = [];
-    const existingProdut = cart.find((item) => item.id === product.id);
-    if (existingProdut) {
-      newCart = cart.map((item) =>
-        item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
-      );
-    } else {
-      newCart = [...cart, { ...product, quantity: 1 }];
-    }
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
+
+  const startCart = (newCart) => {
     localStorage.setItem("cart", JSON.stringify(newCart));
     setCart(newCart);
   };
 
+  //se agg lo de guardar de datos
+  const addToCart = async (product) => {
+    console.log(cart);
+    if (!cart || !cart.id_producto) {
+      console.error("Cart is not initialized correctly");
+      return;
+    }
+    // let newCart = {};
+    const existingProdut = cart.id_producto.find(
+      (item) => item.id === product.id
+    );
+
+    let newCart;
+    if (existingProdut) {
+      newCart = {
+        ...cart,
+        id_producto: cart.id_producto.map((item) =>
+          item.id === product.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        ),
+      };
+    } else {
+      newCart = {
+        ...cart,
+        id_producto: [...cart.id_producto, { ...product, quantity: 1 }],
+      };
+    }
+
+    try {
+      await fetch(`http://localhost:3000/carrito/${cart?.id_carrito}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          id_producto: newCart.id_producto,
+        }),
+      }).then((res) => res.json());
+
+      localStorage.setItem("cart", JSON.stringify(newCart));
+      setCart(newCart);
+    } catch (error) {
+      console.error("failed to add product to cart: ", error);
+    }
+  };
+
   const removeFromCart = (product) => {
+    if (!cart || !cart.id_producto) {
+      console.error("Cart is not initialized correctly");
+      return;
+    }
+
     setCart((prevState) => {
-      const updatedCart = prevState
+      const updatedCart = prevState.id_producto
         .map((item) =>
           item.id === product.id
             ? { ...item, quantity: item.quantity - 1 }
@@ -34,21 +79,24 @@ export const CartProvider = ({ children }) => {
       localStorage.setItem("cart", JSON.stringify(updatedCart));
       console.log(updatedCart);
 
-      return updatedCart;
+      return { ...prevState, id_producto: updatedCart };
     });
   };
 
   const clearCart = () => {
     localStorage.setItem("cart", JSON.stringify([]));
-
-    setCart([]);
+    setCart({ id_producto: [] });
   };
 
   return (
     <CartContext.Provider
-      value={{ cart, addToCart, removeFromCart, clearCart }}
+      value={{ cart, startCart, addToCart, removeFromCart, clearCart }}
     >
       {children}
     </CartContext.Provider>
   );
 };
+
+const useCart = () => useContext(CartContext);
+
+export default useCart;

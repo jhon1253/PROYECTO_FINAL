@@ -4,17 +4,17 @@ import styles from "./CartIcon.module.css";
 import Cart from "../Cart/Cart";
 import { useNavigate } from "react-router-dom";
 
-
 const CartIcon = () => {
   const { cart } = useContext(CartContext);
   const [showCart, setShowCart] = useState(false);
+  const navigate = useNavigate();
 
   // Contar la cantidad total de productos en el carrito
-  const totalItems = cart?.reduce((total, item) => total + item.quantity, 0);
-const navigate = useNavigate()
-const pagCart = ()=>{
-  navigate('Cart')
-}
+  const totalItems =
+    cart.id_product?.reduce((total, item) => total + item.quantity, 0) || 0;
+  const pagCart = () => {
+    navigate("Cart");
+  };
   return (
     <div className={styles.cartIcon}>
       <span onClick={pagCart}>

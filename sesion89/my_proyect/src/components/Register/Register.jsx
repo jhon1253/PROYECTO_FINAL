@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Register.css";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../fireBase/credenciales";
-import { Navigate, useNavigate } from "react-router-dom";
+import { json, Navigate, useNavigate } from "react-router-dom";
+import { CartContext } from "../context/CartContext";
 
 const RegisterForm = () => {
   const [name, setName] = useState("");
@@ -14,6 +15,7 @@ const RegisterForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showPasswordConfirm, setShowPasswordConfirm] = useState(false);
   const [mostrarError, setMostrarError] = useState(null);
+  const {setCart} = useContext(CartContext)
 
   const Navigate = useNavigate();
 
@@ -49,6 +51,25 @@ const RegisterForm = () => {
           password,
         }),
       });
+
+       const newCart = await fetch("http://localhost:3000/carrito", {
+         method: "POST",
+         headers: {
+           "Content-Type": "application/json",
+         },
+         body: JSON.stringify({
+           id_producto: [],
+           id_usuario: User.uid,
+         }),
+       }).then((res) => res.json());
+       console.log(newCart);
+
+
+       localStorage.setItem("cart", JSON.stringify(newCart))
+
+
+
+
       setMostrarError("Cuenta creada con exito");
       setEmail(""); // Limpiar el campo de email
       setPassword(""); // Limpiar el campo de contraseña

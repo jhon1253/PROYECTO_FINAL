@@ -46,12 +46,12 @@ const Cart = () => {
       </div>
 
       <div className={styles.targetContent}>
-        {cart.length === 0 ? (
+        {cart.id_producto.length === 0 ? (
           <p className={styles.emptyMessage}>
             Tu carrito de compras está vacío.
           </p>
         ) : (
-          cart.map((product) => (
+          cart.id_producto.map((product) => (
             <div key={product.id} className={styles.productItem}>
               <h3 className={styles.productName}>{product.name}</h3>
               <h3>{product.title}</h3>
@@ -84,7 +84,7 @@ const Cart = () => {
         </button>
       </div>
 
-      {cart.length > 0 && (
+      {cart.id_producto.length > 0 && (
         <div className={styles.buy_now}>
           <button className={styles.comprar_ahora} onClick={handlePurchase}>
             Comprar Ahora
