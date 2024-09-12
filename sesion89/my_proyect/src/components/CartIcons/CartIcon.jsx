@@ -9,9 +9,13 @@ const CartIcon = () => {
   const [showCart, setShowCart] = useState(false);
   const navigate = useNavigate();
 
-  // Contar la cantidad total de productos en el carrito
+  // Verifica la estructura del carrito con un console.log
+  console.log(cart);
+
+  // Ajusta la forma en que calculas el totalItems según la estructura de tu carrito
   const totalItems =
-    cart.id_product?.reduce((total, item) => total + item.quantity, 0) || 0;
+  cart.id_producto?.reduce((total, product) => total + product.quantity, 0) || 0;
+
   const pagCart = () => {
     navigate("Cart");
   };

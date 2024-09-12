@@ -4,7 +4,7 @@ import { CartContext } from "./CartContext";
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState(() => {
     const savedCart = JSON.parse(localStorage.getItem("cart"));
-    return savedCart || { id_producto: [] };
+    return savedCart || { id_producto: [] }; 
   });
 
   useEffect(() => {
@@ -16,20 +16,18 @@ export const CartProvider = ({ children }) => {
     setCart(newCart);
   };
 
-  //se agg lo de guardar de datos
   const addToCart = async (product) => {
-    console.log(cart);
     if (!cart || !cart.id_producto) {
       console.error("Cart is not initialized correctly");
       return;
     }
-    // let newCart = {};
-    const existingProdut = cart.id_producto.find(
+
+    const existingProduct = cart.id_producto.find(
       (item) => item.id === product.id
     );
 
     let newCart;
-    if (existingProdut) {
+    if (existingProduct) {
       newCart = {
         ...cart,
         id_producto: cart.id_producto.map((item) =>
@@ -57,7 +55,7 @@ export const CartProvider = ({ children }) => {
       localStorage.setItem("cart", JSON.stringify(newCart));
       setCart(newCart);
     } catch (error) {
-      console.error("failed to add product to cart: ", error);
+      console.error("Failed to add product to cart: ", error);
     }
   };
 
@@ -76,7 +74,10 @@ export const CartProvider = ({ children }) => {
         )
         .filter((item) => item.quantity > 0); // Filtra los productos con cantidad 0
 
-      localStorage.setItem("cart", JSON.stringify(updatedCart));
+      localStorage.setItem(
+        "cart",
+        JSON.stringify({ id_producto: updatedCart })
+      );
       console.log(updatedCart);
 
       return { ...prevState, id_producto: updatedCart };
@@ -84,7 +85,7 @@ export const CartProvider = ({ children }) => {
   };
 
   const clearCart = () => {
-    localStorage.setItem("cart", JSON.stringify([]));
+    localStorage.setItem("cart", JSON.stringify({ id_producto: [] }));
     setCart({ id_producto: [] });
   };
 

@@ -38,6 +38,8 @@ const Cart = () => {
     }
   };
 
+  const cartProducts = cart.id_producto || [];
+
   return (
     <div className={styles.cartContainer}>
       {loginActivo && <Login setMostrarFormulario={setLoginActivo} />}
@@ -46,12 +48,12 @@ const Cart = () => {
       </div>
 
       <div className={styles.targetContent}>
-        {cart.id_producto.length === 0 ? (
+        {cartProducts.length === 0 ? (
           <p className={styles.emptyMessage}>
             Tu carrito de compras está vacío.
           </p>
         ) : (
-          cart.id_producto.map((product) => (
+          cartProducts.map((product) => (
             <div key={product.id} className={styles.productItem}>
               <h3 className={styles.productName}>{product.name}</h3>
               <h3>{product.title}</h3>
@@ -84,7 +86,7 @@ const Cart = () => {
         </button>
       </div>
 
-      {cart.id_producto.length > 0 && (
+      {cartProducts.length > 0 && (
         <div className={styles.buy_now}>
           <button className={styles.comprar_ahora} onClick={handlePurchase}>
             Comprar Ahora

@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Login.css";
 import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../fireBase/credenciales";
 import { useNavigate } from "react-router-dom";
+import { CartContext } from "../context/CartContext";
 
 const Login = ({ setMostrarFormulario }) => {
   const [email, setEmail] = useState("");
@@ -10,6 +11,7 @@ const Login = ({ setMostrarFormulario }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [mostrarError, setMostrarError] = useState(null);
+  const {startCart} = useContext(CartContext)
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -28,7 +30,15 @@ const Login = ({ setMostrarFormulario }) => {
     e.preventDefault();
 
     try {
-      await signInWithEmailAndPassword(auth, email, password);
+      const resp = await signInWithEmailAndPassword(auth, email, password);
+      const Cart = await fetch(
+        `http://localhost:3000/carrito/${resp.user.uid}`,
+        {
+          method: "GET",
+          headers: { "Content-Type": "application/json" },
+        }
+      ).then((res) => res.json());
+      startCart(Cart);
       console.log("Ingresaste a la cuenta");
     } catch (error) {
       setMostrarError("Dirección o contraseña incorrecta.");

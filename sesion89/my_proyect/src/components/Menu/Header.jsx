@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Header.css";
 import Img from "../../assets/mmmppp.png";
 import { Link } from "react-scroll";
@@ -8,11 +8,13 @@ import Login from "../Login/Login";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../../fireBase/credenciales";
 import ProfileImage from "../ProfileImage/ProfileImage";
+import { CartContext } from "../context/CartContext";
 
 function Header() {
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
   const [mostrarRegistro] = useState(false);
   const [Email, setEmail] = useState("");
+  const {clearCart} = useContext(CartContext)
   const [menuAbierto, setMenuAbierto] = useState(false); // Estado para el menú hamburguesa
   const toggleFormulario = () => {
     setMostrarFormulario(!mostrarFormulario);
@@ -23,6 +25,7 @@ function Header() {
       await signOut(auth);
       setEmail(""); // Limpia el estado de email al cerrar sesión
       console.log("Sesión cerrada con éxito");
+      clearCart();
     } catch (error) {
       console.log("No cerro la sesion");
     }
