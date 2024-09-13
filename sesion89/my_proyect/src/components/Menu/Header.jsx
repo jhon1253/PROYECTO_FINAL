@@ -51,7 +51,7 @@ function Header() {
     <div className="contenido">
       <header className="header">
         <div className="container">
-          <img className="hover:animate-bounce" src={Img} alt="Logo" />
+          <img  src={Img} alt="Logo" />
           <nav className={menuAbierto ? "navbar active" : "navbar"}>
             <Link to="electronics" smooth={true} duration={200}>
               TECNOLOGIA

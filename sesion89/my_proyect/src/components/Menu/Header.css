@@ -55,18 +55,7 @@ h3 {
   padding-left: 40px;
 }
 
-@keyframes spin {
-  /* 0% { transform: translateX(0); }
-  50% { transform: translateX(20px); }
-  100% { transform: translateX(0); } */
 
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
 
 .header img {
   animation: spin 5s linear infinite;

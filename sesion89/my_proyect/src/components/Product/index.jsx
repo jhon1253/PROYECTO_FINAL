@@ -38,7 +38,7 @@ const Product = ({ id, image, title, description, price, rating }) => {
       </div>
       <div className="div_btn-comprar">
         <button onClick={handleClick} className="b-comprar">
-          COMPRAR
+          Agregar la carrito
         </button>
       </div>
     </div>
