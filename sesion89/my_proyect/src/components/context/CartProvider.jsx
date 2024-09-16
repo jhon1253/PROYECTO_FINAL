@@ -43,6 +43,7 @@ export const CartProvider = ({ children }) => {
       };
     }
 
+    //en {cart?.id_carrito} tenemos que pasarle algo mas para que se guarden los productos en el carrito de pg.
     try {
       await fetch(`http://localhost:3000/carrito/${cart?.id_carrito}`, {
         method: "PUT",

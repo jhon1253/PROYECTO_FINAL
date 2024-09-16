@@ -32,7 +32,7 @@ const Cart = () => {
 
       setTimeout(() => {
         navigate("/confirmation");
-      }, 5000);
+      }, 7000);
     } else {
       setLoginActivo(true);
     }
