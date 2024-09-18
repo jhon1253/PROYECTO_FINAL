@@ -11,7 +11,7 @@ const Login = ({ setMostrarFormulario }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [mostrarError, setMostrarError] = useState(null);
-  const {startCart} = useContext(CartContext)
+  const { startCart } = useContext(CartContext);
   const navigate = useNavigate();
 
   useEffect(() => {
