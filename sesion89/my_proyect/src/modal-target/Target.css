@@ -1,0 +1,59 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Asegúrate de que se superponga a otros elementos */
+}
+
+
+.modal-content {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  width: 300px; /* Ajusta el tamaño según sea necesario */
+  position: relative; /* Posicionamiento para el botón de cerrar */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  color: #333; /* Color del botón de cerrar */
+}
+
+
+.close:hover {
+  color: red; /* Cambia el color al pasar el mouse */
+}
+
+
+.modal-image {
+  max-width: 100%;
+  height: auto;
+  margin: 10px 0; /* Espacio alrededor de la imagen */
+}
+
+
+.b-comprar {
+  background-color: #007bff; /* Color del botón */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+.b-comprar:hover {
+  background-color: #0056b3; /* Color más oscuro al pasar el mouse */
+}
