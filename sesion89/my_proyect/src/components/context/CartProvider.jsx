@@ -17,7 +17,7 @@ export const CartProvider = ({ children }) => {
   };
 
   const addToCart = async (product) => {
-    if (!cart || !cart.id_producto) {
+    if (!cart || !cart.id_producto || !cart.id_carrito) {
       console.error("Cart is not initialized correctly");
       return;
     }
@@ -26,33 +26,34 @@ export const CartProvider = ({ children }) => {
       (item) => item.id === product.id
     );
 
-    let newCart;
-    if (existingProduct) {
-      newCart = {
-        ...cart,
-        id_producto: cart.id_producto.map((item) =>
-          item.id === product.id
-            ? { ...item, quantity: item.quantity + 1 }
-            : item
-        ),
-      };
-    } else {
-      newCart = {
-        ...cart,
-        id_producto: [...cart.id_producto, { ...product, quantity: 1 }],
-      };
-    }
+    const newCart = existingProduct
+      ? {
+          ...cart,
+          id_producto: cart.id_producto.map((item) =>
+            item.id === product.id
+              ? { ...item, quantity: item.quantity + 1 }
+              : item
+          ),
+        }
+      : {
+          ...cart,
+          id_producto: [...cart.id_producto, { ...product, quantity: 1 }],
+        };
 
     //en {cart?.id_carrito} tenemos que pasarle algo mas para que se guarden los productos en el carrito de pg.
     try {
-      await fetch(`http://localhost:3000/carrito/${cart?.id_carrito}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          id_producto: newCart.id_producto,
-        }),
-      }).then((res) => res.json());
+      const response = await fetch(
+        `http://localhost:3000/carrito/${cart.id_carrito}`,
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ id_producto: newCart.id_producto }),
+        }
+      );
 
+      if (!response.ok) throw new Error("Network response was not ok");
+
+      await response.json();
       localStorage.setItem("cart", JSON.stringify(newCart));
       setCart(newCart);
     } catch (error) {
@@ -60,35 +61,69 @@ export const CartProvider = ({ children }) => {
     }
   };
 
-  const removeFromCart = (product) => {
-    if (!cart || !cart.id_producto) {
-      console.error("Cart is not initialized correctly");
-      return;
-    }
+const removeFromCart = async (product) => {
+  if (!cart || !cart.id_producto || !cart.id_carrito) {
+    console.error("Cart is not initialized correctly");
+    return;
+  }
 
-    setCart((prevState) => {
-      const updatedCart = prevState.id_producto
-        .map((item) =>
-          item.id === product.id
-            ? { ...item, quantity: item.quantity - 1 }
-            : item
-        )
-        .filter((item) => item.quantity > 0); // Filtra los productos con cantidad 0
+  // Actualizar el carrito localmente
+  const updatedCart = cart.id_producto
+    .map((item) =>
+      item.id === product.id ? { ...item, quantity: item.quantity - 1 } : item
+    )
+    .filter((item) => item.quantity > 0); // Filtra los productos con cantidad 0
 
-      localStorage.setItem(
-        "cart",
-        JSON.stringify({ id_producto: updatedCart })
-      );
-      console.log(updatedCart);
+  const newCart = { ...cart, id_producto: updatedCart };
 
-      return { ...prevState, id_producto: updatedCart };
-    });
-  };
+  try {
+    const response = await fetch(
+      `http://localhost:3000/carrito/${cart.id_carrito}`,
+      {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id_producto: updatedCart }),
+      }
+    );
 
-  const clearCart = () => {
-    localStorage.setItem("cart", JSON.stringify({ id_producto: [] }));
-    setCart({ id_producto: [] });
-  };
+
+    await response.json();
+    localStorage.setItem("cart", JSON.stringify(newCart));
+    setCart(newCart);
+  } catch (error) {
+    console.error("Failed to remove product from cart: ", error);
+  }
+};
+
+const clearCart = async () => {
+  if (!cart || !cart.id_carrito) {
+    console.error("Cart is not initialized correctly");
+    return;
+  }
+
+  // Vaciar el carrito localmente
+  const vaciarCart = { ...cart, id_producto: [] };
+
+  // Enviar la solicitud PUT para vaciar el carrito en el backend
+  try {
+    const response = await fetch(
+      `http://localhost:3000/carrito/${cart.id_carrito}`,
+      {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id_producto: [] }), // Enviar el carrito vacío
+      }
+    );
+
+    if (!response.ok) throw new Error("Network response was not ok");
+
+    await response.json();
+    localStorage.setItem("cart", JSON.stringify(vaciarCart));
+    setCart(vaciarCart);
+  } catch (error) {
+    console.error("Failed to clear cart: ", error);
+  }
+};
 
   return (
     <CartContext.Provider

@@ -23,6 +23,7 @@ const Cart = () => {
 
   const handleClearCart = () => {
     clearCart();
+    navigate("/")
   };
 
   const handlePurchase = () => {

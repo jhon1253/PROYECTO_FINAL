@@ -14,7 +14,7 @@ function Header() {
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
   const [mostrarRegistro] = useState(false);
   const [Email, setEmail] = useState("");
-  const {clearCart} = useContext(CartContext)
+  const { clearCart } = useContext(CartContext);
   const [menuAbierto, setMenuAbierto] = useState(false); // Estado para el menú hamburguesa
   const toggleFormulario = () => {
     setMostrarFormulario(!mostrarFormulario);
@@ -25,7 +25,8 @@ function Header() {
       await signOut(auth);
       setEmail(""); // Limpia el estado de email al cerrar sesión
       console.log("Sesión cerrada con éxito");
-      clearCart();
+      localStorage.setItem("cart", JSON.stringify([]));
+      location.reload();
     } catch (error) {
       console.log("No cerro la sesion");
     }
@@ -51,7 +52,7 @@ function Header() {
     <div className="contenido">
       <header className="header">
         <div className="container">
-          <img  src={Img} alt="Logo" />
+          <img src={Img} alt="Logo" />
           <nav className={menuAbierto ? "navbar active" : "navbar"}>
             <Link to="electronics" smooth={true} duration={200}>
               TECNOLOGIA
@@ -81,43 +82,55 @@ function Header() {
         <div className="flex">
           {menuAbierto ? (
             <div className="buttons_header_responsive">
-              <div className="verCorreo">
-                {Email && <ProfileImage email={Email} />}
-              </div>
-              <button className="btn-ini-cerrarsesion" onClick={cerrarLogin}>
-                Cerrar Sesion
-              </button>
-              <button
-                className="btn-ini-sesion"
-                type="button"
-                onClick={toggleFormulario}
-              >
-                Iniciar Sesion
-              </button>
+              {Email ? (
+                <>
+                  <div className="verCorreo">
+                    {Email && <ProfileImage email={Email} />}
+                  </div>
+                  <button
+                    className="btn-ini-cerrarsesion"
+                    onClick={cerrarLogin}
+                  >
+                    Cerrar Sesion
+                  </button>
+                </>
+              ) : (
+                <button
+                  className="btn-ini-sesion"
+                  type="button"
+                  onClick={toggleFormulario}
+                >
+                  Iniciar Sesion
+                </button>
+              )}
               <div className="cart-icon-container">
                 <CartIcon />
               </div>
             </div>
           ) : (
             <div className="buttons_header">
-              <div className="verCorreo">
-                {Email && <ProfileImage email={Email} />}
-              </div>
-              <button className="btn-ini-cerrarsesion" onClick={cerrarLogin}>
-                Cerrar Sesion
-              </button>
-              <button
-                className="btn-ini-sesion"
-                type="button"
-                onClick={toggleFormulario}
-              >
-                Iniciar Sesion
-              </button>
-              {/* <a href="/register">
-                <button className="btn-ini-registro" type="button">
-                  SINGUP
+              {Email ? (
+                <>
+                  <div className="verCorreo">
+                    {Email && <ProfileImage email={Email} />}
+                  </div>
+                  <button
+                    className="btn-ini-cerrarsesion"
+                    onClick={cerrarLogin}
+                  >
+                    Cerrar Sesion
+                  </button>
+                </>
+              ) : (
+                <button
+                  className="btn-ini-sesion"
+                  type="button"
+                  onClick={toggleFormulario}
+                >
+                  Iniciar Sesion
                 </button>
-              </a> */}
+              )}
+
               <div className="cart-icon-container">
                 <CartIcon />
               </div>
