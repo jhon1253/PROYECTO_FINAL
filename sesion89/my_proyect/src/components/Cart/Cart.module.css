@@ -1,6 +1,6 @@
 .cartContainer {
-  background-color: #fff; /* Fondo blanco para el contenedor */
-  color: #333; /* Texto en color gris oscuro */
+  background-color: #fff; 
+  color: #333; 
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -14,7 +14,7 @@
 }
 
 .listTitle {
-  color: #000; /* Título en negro */
+  color: #000; 
   font-size: 2rem;
   font-weight: bold;
 }
@@ -38,30 +38,30 @@
 }
 
 .productItem:hover {
-  background-color: #d34545; /* Color rojo claro en hover */
+  background-color: #d34545; 
 }
 
 .productImage {
-  max-width: 150px; /* Reduce el tamaño de la imagen */
+  max-width: 150px;
   height: auto;
   border-radius: 4px;
-  margin-bottom: 8px; /* Reduce el margen inferior de la imagen */
+  margin-bottom: 8px; 
 }
 
 .productName {
-  font-size: 1.2rem; /* Reduce el tamaño de la fuente */
+  font-size: 1.2rem; 
   font-weight: bold;
   color: #000;
-  margin: 8px 0; /* Reduce el margen superior e inferior */
+  margin: 8px 0; 
 }
 
 .productPrice {
-  font-size: 1rem; /* Reduce el tamaño de la fuente */
-  margin: 8px 0; /* Reduce el margen superior e inferior */
+  font-size: 1rem; 
+  margin: 8px 0; 
 }
 .button {
-  background-color: #c00; /* Fondo rojo */
-  color: #fff; /* Texto en blanco */
+  background-color: #c00; 
+  color: #fff;
   border: none;
   padding: 10px 20px;
   border-radius: 4px;
@@ -70,8 +70,8 @@
   transition: background-color 0.3s ease;
 }
 .comprar_ahora{
-  background-color: #c00; /* Fondo rojo */
-  color: #fff; /* Texto en blanco */
+  background-color: #c00; 
+  color: #fff; 
   border: none;
   padding: 10px 13px;
   border-radius: 4px;
@@ -90,12 +90,12 @@
 
 
 .button:hover {
-  background-color: #900; /* Rojo más oscuro en hover */
+  background-color: #900; 
 }
 
 .emptyMessage {
   text-align: center;
-  color: #666; /* Texto gris claro */
+  color: #666; 
   font-size: 1.2rem;
 }
 

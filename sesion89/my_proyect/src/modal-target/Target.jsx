@@ -3,13 +3,20 @@ import "./Target.css";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../fireBase/credenciales";
 import Logearse from "../components/Login/Login";
+
+
+
 function Target({ product, onClose, addToCart, isUserLoggedIn }) {
+
   if (!product) return null;
   const [User, setUser] = useState(null);
   const [Login, setLogin] = useState(null);
+
+
   const handleAddToCart = () => {
     if (isUserLoggedIn) {
       addToCart(product);
+      //quitar a ver para poder agg mas productos
       onClose(); // Cerrar el modal después de agregar al carrito
     } else {
       alert("Por favor, inicia sesión para agregar productos al carrito.");

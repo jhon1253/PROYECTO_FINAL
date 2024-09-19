@@ -21,7 +21,7 @@ body {
 
 .header nav {
   display: flex;
-  align-items: center; /* ggggggg */
+  align-items: center; 
   text-decoration: none;
   font-weight: bold;
 }
@@ -141,8 +141,8 @@ a:hover {
 .btn-ini-cerrarsesion {
   padding: 5px 10px;
   margin: 5px;
-  white-space: nowrap; /* Evita que el texto se divida en varias líneas */
-  box-sizing: border-box; /* Asegura que el padding no afecte al ancho total del botón */
+  white-space: nowrap; 
+  box-sizing: border-box; 
 }
 
 .btn-ini-registro {
@@ -244,7 +244,7 @@ a:hover {
 
   .navbar.active {
     margin-top: 20px;
-    display: flex; /* Muestra el menú desplegable cuando está activo */
+    display: flex; 
     width: 50%;
     display: flex;
     align-items: flex-start;
@@ -253,7 +253,7 @@ a:hover {
   .navbar {
     background-color: #141414;
     position: absolute;
-    top: 60px; /* Ajusta según el alto del header */
+    top: 60px; 
     left: 0;
     width: 100%;
     padding: 20px;
@@ -261,6 +261,6 @@ a:hover {
   }
 
   #menu-btn-Hamburguesa {
-    display: block; /* Muestra el botón hamburguesa en pantallas pequeñas */
+    display: block;
   }
 }
