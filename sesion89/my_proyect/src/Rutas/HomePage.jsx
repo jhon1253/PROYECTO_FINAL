@@ -10,11 +10,10 @@ import img6 from "../assets/img6.png";
 import img7 from "../assets/img7.png";
 import img8 from "../assets/img8.png";
 
-const images = [img1, img2, img3, img4, img5, img6, img7, img8];
+const images = [img1, img2, img3, img4, img5, img6, img7, img8];//array para recorrer img
 
 const carousel = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-//ghhgchh
+  const [currentIndex, setCurrentIndex] = useState(null);
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);

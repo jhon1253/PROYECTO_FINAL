@@ -15,7 +15,7 @@ const RegisterForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showPasswordConfirm, setShowPasswordConfirm] = useState(false);
   const [mostrarError, setMostrarError] = useState(null);
-  const {setCart} = useContext(CartContext)
+  const { setCart } = useContext(CartContext);
 
   const Navigate = useNavigate();
 
@@ -52,28 +52,25 @@ const RegisterForm = () => {
         }),
       });
 
-       const newCart = await fetch("http://localhost:3000/carrito", {
-         method: "POST",
-         headers: {
-           "Content-Type": "application/json",
-         },
-         body: JSON.stringify({
-           id_producto: [],
-           id_usuario: User.uid,
-         }),
-       }).then((res) => res.json());
-       console.log(newCart);
+      const newCart = await fetch("http://localhost:3000/carrito", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          id_producto: [],
+          id_usuario: User.uid,
+        }),
+      }).then((res) => res.json());
+      console.log(newCart);
 
-
-       localStorage.setItem("cart", JSON.stringify(newCart))
-
-
-
+      localStorage.setItem("cart", JSON.stringify(newCart));
 
       setMostrarError("Cuenta creada con exito");
       setEmail(""); // Limpiar el campo de email
       setPassword(""); // Limpiar el campo de contraseña
       Navigate("/");
+      location.reload();
     } catch (error) {
       console.log("Error al crear cuenta", error);
     }

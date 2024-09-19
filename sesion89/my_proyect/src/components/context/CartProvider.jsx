@@ -34,19 +34,15 @@ export const CartProvider = ({ children }) => {
   };
 
   const addToCart = async (product) => {
-    if (!cart || !cart.id_producto || !cart.id_carrito) {
-      console.error("Cart is not initialized correctly");
-      return;
-    }
 
-    const existingProduct = cart.id_producto.find(
+    const existingProduct = cart?.id_producto?.find(
       (item) => item.id === product.id
     );
 
     const newCart = existingProduct
       ? {
           ...cart,
-          id_producto: cart.id_producto.map((item) =>
+          id_producto: cart?.id_producto?.map((item) =>
             item.id === product.id
               ? { ...item, quantity: item.quantity + 1 }
               : item
@@ -54,12 +50,12 @@ export const CartProvider = ({ children }) => {
         }
       : {
           ...cart,
-          id_producto: [...cart.id_producto, { ...product, quantity: 1 }],
+          id_producto: [...cart?.id_producto, { ...product, quantity: 1 }],
         };
 
     try {
       const response = await fetch(
-        `http://localhost:3000/carrito/${cart.id_carrito}`,
+        `http://localhost:3000/carrito/${cart?.id_carrito}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },

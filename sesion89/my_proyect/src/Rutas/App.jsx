@@ -8,8 +8,6 @@ import HomePage from "./HomePage";
 export default function App() {
   const {
     data: allProducts,
-    loading,
-    error,
   } = useFetch("https://fakestoreapi.com/products");
 
   const [electronics, setElectronics] = useState([]);
@@ -34,8 +32,7 @@ export default function App() {
     }
   }, [allProducts]);
 
-  // if (loading) return <p>Loading...</p>;
-  // if (error) return <p>Error loading products</p>;
+
 
   return (
     <>
