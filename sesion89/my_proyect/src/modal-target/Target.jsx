@@ -17,7 +17,7 @@ function Target({ product, onClose, addToCart, isUserLoggedIn }) {
     if (isUserLoggedIn) {
       addToCart(product);
       //quitar a ver para poder agg mas productos
-      onClose(); // Cerrar el modal después de agregar al carrito
+      //onClose();  Cerrar el modal después de agregar al carrito
     } else {
       alert("Por favor, inicia sesión para agregar productos al carrito.");
     }
