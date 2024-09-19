@@ -18,7 +18,7 @@ const Facture = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
+      const response = await post(
         "http://localhost:3000/facturas",
         formData
       );
